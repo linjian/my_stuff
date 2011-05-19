@@ -1,0 +1,46 @@
+set guioptions+=mTBnN
+
+" disable some keys
+map A <Nop>
+map d <Nop>
+map D <Nop>
+map <C-o> <Nop>
+map <C-i> <Nop>
+
+" down and up half page
+noremap J <C-d>
+noremap K <C-u>
+
+" move tab
+map <C-Right> :tabmove +1<CR>
+map <C-Left> :tabmove -1<CR>
+map <C-Down> :tabmove <CR>
+map <C-Up> :tabmove 0<CR>
+
+" stop page loading
+noremap s <C-c>
+
+" restore C-a, C-c, C-v, C-x, C-z, C-y
+noremap <C-c> <C-v><C-c>
+noremap <C-a> <C-v><C-a>
+cnoremap <C-c> <C-v><C-c>
+cnoremap <C-v> <C-v><C-v>
+cnoremap <C-x> <C-v><C-x>
+inoremap <C-a> <C-v><C-a>
+inoremap <C-c> <C-v><C-c>
+inoremap <C-v> <C-v><C-v>
+inoremap <C-x> <C-v><C-x>
+inoremap <C-z> <C-v><C-z>
+inoremap <C-y> <C-v><C-y>
+
+" center selected text
+" nnoremap <silent> zz :centerselect<CR>
+nnoremap <silent> zz :centerselect "border: hidden;"<CR>
+nnoremap <silent> zt :topselect<CR>
+nnoremap <silent> zb :bottomselect<CR>
+nnoremap <silent> zc :removeselect<CR>
+
+" source config file
+map ,s :source ~/_vimperatorrc<CR>
+
+" vim: set ft=vimperator:

@@ -1,0 +1,20 @@
+[user]
+	name = Jian Lin
+	email = linjian815@gmail.com
+[merge]
+	tool = gvimdiff
+	; tool = mvimdiff
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[alias]
+	co = checkout
+	sw = checkout
+	branch-new-and-switch = checkout -b
+	br = branch
+	branch-delete = branch -d
+	ci = commit
+	st = status
+	unstage = reset HEAD --
+	last = log -1 HEAD

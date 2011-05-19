@@ -1,0 +1,18 @@
+man -k
+man -f
+whatis
+type -t
+ls -t
+ls -S
+ls -r
+head -1(n)
+ls *.txt | xargs rm
+alias ll(other alias)
+unalias
+uname -a
+hostname
+whoami
+passwd
+ssh-keygen
+> (create new) or >> (append)
+lsof
