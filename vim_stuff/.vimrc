@@ -178,9 +178,9 @@ endif
 
 " Set commenter
 let NERDSpaceDelims = 1
-nmap <A-m> ,c<Space>
-vmap <A-m> ,c<Space>gv
-imap <A-m> <Esc>,c<Space>
+nmap <A-m> <Leader>c<Space>
+vmap <A-m> <Leader>c<Space>gv
+imap <A-m> <Esc><Leader>c<Space>
 
 " Toggle comment for eruby
 function! ErubyCommentToggle() range
