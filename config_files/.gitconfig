@@ -1,6 +1,3 @@
-[user]
-	name = Jian Lin
-	email = linjian815@gmail.com
 [merge]
 	tool = gvimdiff
 	; tool = mvimdiff
@@ -11,6 +8,7 @@
 [alias]
 	co = checkout
 	sw = checkout
+	revertfile = checkout
 	branch-new-and-switch = checkout -b
 	br = branch
 	branch-delete = branch -d
@@ -18,3 +16,5 @@
 	st = status
 	unstage = reset HEAD --
 	last = log -1 HEAD
+[core]
+	excludesfile = ~/.gitignore
