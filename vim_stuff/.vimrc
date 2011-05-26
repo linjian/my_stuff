@@ -136,12 +136,12 @@ command! Padaptor Project ~/.vimproject_adaptor_branches
 
 " ********************* For Mac *********************
 " Use option (alt) key as meta key
-if has('gui_running') && has('gui_mac')
+if has('gui_running') && has('gui_macvim')
     set macmeta
 endif
 
 " xargs on Mac doesn't support --null, so change it to -0 instead
-if has('mac') || has('macunix')
+if has('mac') || has('macunix') || has('gui_macvim')
     let Grep_Xargs_Options = '-0'
 endif
 " ********************* For Mac *********************
