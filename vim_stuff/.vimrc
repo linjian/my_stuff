@@ -100,7 +100,7 @@ augroup myfiletypes
     " Clear old autocmds in group
     autocmd!
     " autoindent with two spaces, always expand tabs
-    autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
+    autocmd FileType ruby,eruby,yaml set autoindent shiftwidth=2 softtabstop=2 expandtab tabstop=2
 augroup END
 
 " No backup
@@ -371,3 +371,7 @@ nnoremap w= <C-w>=
 " Fix 'No newline at end of file' issue
 set noendofline
 set binary
+
+" switch number(2/4) of spaces that a <Tab> counts for
+map <silent> <A-t>2 :set tabstop=2<CR>
+map <silent> <A-t>4 :set tabstop=4<CR>
