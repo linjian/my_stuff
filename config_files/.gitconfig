@@ -17,5 +17,6 @@
 	unstage = reset HEAD --
 	uncommit = reset --soft HEAD~1
 	last = log -1 HEAD
+	push-master = push origin master
 [core]
 	excludesfile = ~/.gitignore
