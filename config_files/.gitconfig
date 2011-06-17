@@ -15,6 +15,7 @@
 	ci = commit
 	st = status
 	unstage = reset HEAD --
+	uncommit = reset --soft HEAD~1
 	last = log -1 HEAD
 [core]
 	excludesfile = ~/.gitignore
