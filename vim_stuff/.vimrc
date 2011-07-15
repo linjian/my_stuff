@@ -272,9 +272,22 @@ function! CloseQuote(char)
     endif
 endfunction
 
-" Increase and decrease the size of a window
+" Increase and decrease current window height by 1
 map <A--> <C-w>-
 map <A-=> <C-w>+
+
+" Make all windows (almost) equally high and wide
+nnoremap w= <C-w>=
+
+" Set current window highest possible
+nnoremap w<Up> <C-w>_
+
+" Set current window height to 1
+nnoremap w<Down> z1<CR>
+
+" Increase and decrease current window width by 1
+nnoremap w, <C-w><
+nnoremap w. <C-w>>
 
 " Jump to change Mapping
 map <A-]> ]c
@@ -365,8 +378,6 @@ set termencoding=utf-8
 " set fileformats=unix
 " set encoding=prc
 
-" Make all windows (almost) equally high and wide
-nnoremap w= <C-w>=
 
 " Fix 'No newline at end of file' issue
 set noendofline
