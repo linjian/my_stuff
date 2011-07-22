@@ -36,11 +36,25 @@
 
 |gstar|	N  g*		like "*", but also find partial matches
 |g#|	N  g#		like "#", but also find partial matches
-|gd|	   gd		goto local declaration of identifier under the cursor
-|gD|	   gD		goto global declaration of identifier under the cursor
 
 |pattern|		Special characters in search patterns
 
 			meaning		      magic   nomagic	~
 		       matches start of word	\<	<
 			 matches end of word	\>	>
+
+     matches 0 or more of the preceding atom	*	\*
+     matches 1 or more of the preceding atom	\+	\+
+	matches 0 or 1 of the preceding atom	\=	\=
+
+|search-offset|		Offsets allowed after search command
+
+    [num]	[num] lines downwards, in column 1
+    +[num]	[num] lines downwards, in column 1
+    -[num]	[num] lines upwards, in column 1
+    e[+num]	[num] characters to the right of the end of the match
+    e[-num]	[num] characters to the left of the end of the match
+    s[+num]	[num] characters to the right of the start of the match
+    s[-num]	[num] characters to the left of the start of the match
+    b[+num]	[num] identical to s[+num] above (mnemonic: begin)
+    b[-num]	[num] identical to s[-num] above (mnemonic: begin)

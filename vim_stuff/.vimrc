@@ -276,6 +276,10 @@ endfunction
 map <A--> <C-w>-
 map <A-=> <C-w>+
 
+" Increase and decrease current window width by 1
+nnoremap <A-,> <C-w><
+nnoremap <A-.> <C-w>>
+
 " Make all windows (almost) equally high and wide
 nnoremap w= <C-w>=
 
@@ -284,10 +288,6 @@ nnoremap w<Up> <C-w>_
 
 " Set current window height to 1
 nnoremap w<Down> z1<CR>
-
-" Increase and decrease current window width by 1
-nnoremap w, <C-w><
-nnoremap w. <C-w>>
 
 " Jump to change Mapping
 map <A-]> ]c
