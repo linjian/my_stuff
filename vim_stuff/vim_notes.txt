@@ -1,0 +1,46 @@
+*Q_lr*		Left-right motions
+
+|g0|	   g0		to first character in screen line (differs from "0"
+			   when lines wrap)
+|g^|	   g^		to first non-blank character in screen line (differs
+			   from "^" when lines wrap)
+|g$|	N  g$		to last character in screen line (differs from "$"
+|gm|	   gm		to middle of the screen line
+|bar|	N  |		to column N (default: 1)
+|f|	N  f{char}	to the Nth occurrence of {char} to the right
+|F|	N  F{char}	to the Nth occurrence of {char} to the left
+|t|	N  t{char}	till before the Nth occurrence of {char} to the right
+|T|	N  T{char}	till before the Nth occurrence of {char} to the left
+|;|	N  ;		repeat the last "f", "F", "t", or "T" N times
+|,|	N  ,		repeat the last "f", "F", "t", or "T" N times in
+			   opposite direction
+------------------------------------------------------------------------------
+*Q_ud*		Up-down motions
+
+|-|	N  -		up N lines, on the first non-blank character
+|+|	N  +		down N lines, on the first non-blank character (also:
+			   CTRL-M and <CR>)
+|N%|	N  %		goto line N percentage down in the file.  N must be
+			   given, otherwise it is the |%| command.
+|gk|	N  gk		up N screen lines (differs from "k" when line wraps)
+|gj|	N  gj		down N screen lines (differs from "j" when line wraps)
+------------------------------------------------------------------------------
+*Q_tm*		Text object motions
+
+|)|	N  )		N sentences forward
+|(|	N  (		N sentences backward
+|}|	N  }		N paragraphs forward
+|{|	N  {		N paragraphs backward
+------------------------------------------------------------------------------
+*Q_pa*		Pattern searches
+
+|gstar|	N  g*		like "*", but also find partial matches
+|g#|	N  g#		like "#", but also find partial matches
+|gd|	   gd		goto local declaration of identifier under the cursor
+|gD|	   gD		goto global declaration of identifier under the cursor
+
+|pattern|		Special characters in search patterns
+
+			meaning		      magic   nomagic	~
+		       matches start of word	\<	<
+			 matches end of word	\>	>
