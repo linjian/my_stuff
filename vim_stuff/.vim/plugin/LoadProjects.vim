@@ -59,8 +59,10 @@ function! s:open_project(project_name)
 endfunction
 
 function! s:open_project_with_nerdtree(project_name)
-    " execute "NERDTree ~/workspace/" . a:project_name
-    execute "NERDTree ~/workspace/repository/" . a:project_name
+    " let project_path = "~/workspace/" . a:project_name
+    let project_path = "~/workspace/repository/" . a:project_name
+    execute "NERDTree " . project_path
+    execute "cd " . project_path
     " Move the cursor to the main window(right and bottom)
     execute "normal \3<C-W>l\<C-W>b"
     " Hide the NERD tree
