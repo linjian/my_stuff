@@ -123,8 +123,8 @@ endif
 " Use option (alt) key as meta key
 if has('gui_running') && has('gui_macvim')
     set macmeta
-    " since I mapped <A-Down> in .vimrc and I found that <A-Down> mapping has been override somewhere in GUI mode.
-    " I execute command ":verbose map <A-Down>" to see where it was last defined, and it turns out in
+    " since I mapped <M-Down> in .vimrc and I found that <M-Down> mapping has been override somewhere in GUI mode.
+    " I execute command ":verbose map <M-Down>" to see where it was last defined, and it turns out in
     " /Applications/MacVim.app/Contents/Resources/vim/gvimrc
     " So I add following line to disable the "HIG Cmd and Option movement mappings"
     let macvim_skip_cmd_opt_movement = 1
@@ -137,10 +137,10 @@ endif
 " ********************* For Mac *********************
 
 " Window movement mapping
-map <A-h> <C-W>h
-map <A-j> <C-W>j
-map <A-k> <C-W>k
-map <A-l> <C-W>l
+map <M-h> <C-W>h
+map <M-j> <C-W>j
+map <M-k> <C-W>k
+map <M-l> <C-W>l
 map <C-Left>  <C-W>h
 map <C-Down>  <C-W>j
 map <C-Up>    <C-W>k
@@ -148,9 +148,9 @@ map <C-Right> <C-W>l
 
 " Set commenter
 let NERDSpaceDelims = 1
-nmap <A-m> <Leader>c<Space>
-vmap <A-m> <Leader>c<Space>gv
-imap <A-m> <Esc><Leader>c<Space>
+nmap <M-m> <Leader>c<Space>
+vmap <M-m> <Leader>c<Space>gv
+imap <M-m> <Esc><Leader>c<Space>
 
 " Toggle comment for eruby
 function! ErubyCommentToggle() range
@@ -163,7 +163,7 @@ function! ErubyCommentToggle() range
     endif
     call setline(currentLine, theLine)
 endfunction
-nmap <silent> <A-M> :call ErubyCommentToggle()<CR>
+nmap <silent> <M-M> :call ErubyCommentToggle()<CR>
 
 " Display the extra tab and whitespace
 set list
@@ -171,18 +171,18 @@ set listchars=tab:>-,trail:-
 
 " Set cursor motion for insert mode
 set winaltkeys=no
-imap <A-h> <Left>
-imap <A-j> <Down>
-imap <A-k> <Up>
-imap <A-l> <Right>
-imap <A-$> <Esc>A
-imap <A-^> <Esc>I
-imap <A-d> <Esc>ddi
+imap <M-h> <Left>
+imap <M-j> <Down>
+imap <M-k> <Up>
+imap <M-l> <Right>
+imap <M-$> <Esc>A
+imap <M-^> <Esc>I
+imap <M-d> <Esc>ddi
 
 " Quick save
-nmap <A-s> :update<CR>
+nmap <M-s> :update<CR>
 nmap <C-s> :update<CR>
-imap <A-s> <Esc>:update<CR>a
+imap <M-s> <Esc>:update<CR>a
 imap <C-s> <Esc>:update<CR>a
 
 " Set to auto read when a file is changed from the outside
@@ -241,12 +241,12 @@ function! CloseQuote(char)
 endfunction
 
 " Increase and decrease current window height by 1
-map <A--> <C-w>-
-map <A-=> <C-w>+
+map <M--> <C-w>-
+map <M-=> <C-w>+
 
 " Increase and decrease current window width by 1
-nnoremap <A-,> <C-w><
-nnoremap <A-.> <C-w>>
+nnoremap <M-,> <C-w><
+nnoremap <M-.> <C-w>>
 
 " Make all windows (almost) equally high and wide
 nnoremap w= <C-w>=
@@ -258,8 +258,8 @@ nnoremap w<Up> <C-w>_
 nnoremap w<Down> z1<CR>
 
 " Jump to change Mapping
-map <A-]> ]c
-map <A-[> [c
+map <M-]> ]c
+map <M-[> [c
 
 " Define command for VCSVimDiff
 command! Vd VCSVimDiff
@@ -277,11 +277,11 @@ set tags=tags;
 " set autochdir
 
 " Move a line up or down
-map <silent> <A-Down> :m+<CR>
-map <silent> <A-Up> :m-2<CR>
+map <silent> <M-Down> :m+<CR>
+map <silent> <M-Up> :m-2<CR>
 " Move a block up or down
-vmap <silent> <A-Down> :m'>+<CR>`<my`>mzgv`yo`z
-vmap <silent> <A-Up> :m'<-2<CR>`>my`<mzgv`yo`z
+vmap <silent> <M-Down> :m'>+<CR>`<my`>mzgv`yo`z
+vmap <silent> <M-Up> :m'<-2<CR>`>my`<mzgv`yo`z
 
 " Disable GUI menu and toolbar
 if has("gui_running")
@@ -298,8 +298,8 @@ else
 endif
 
 " Jump to the next/previous in quickfix list
-map <silent> <A-n> :cnext<CR>
-map <silent> <A-p> :cprevious<CR>
+map <silent> <M-n> :cnext<CR>
+map <silent> <M-p> :cprevious<CR>
 
 " The 'Grep_Skip_Dirs' variable specifies the list of directories to skip
 " while doing recursive searches. By default, this is set to 'RCS CVS SCCS'.
@@ -339,8 +339,8 @@ set noendofline
 set binary
 
 " switch number(2/4) of spaces that a <Tab> counts for
-map <silent> <A-t>2 :set tabstop=2<CR>
-map <silent> <A-t>4 :set tabstop=4<CR>
+map <silent> <M-t>2 :set tabstop=2<CR>
+map <silent> <M-t>4 :set tabstop=4<CR>
 
 " fix meta-keys in terminal
 if !has('gui_running')
@@ -349,17 +349,17 @@ if !has('gui_running')
     while c <= 'z'
       " exec "set <M-".toupper(c).">=\e".c
       " exec "set <M-".tolower(c).">=\e".c
-      " exec "map \e".toupper(c)." <A-".toupper(c).">"
-      exec "map \e".tolower(c)." <A-".tolower(c).">"
-      exec "imap \e".tolower(c)." <A-".tolower(c).">"
+      " exec "map \e".toupper(c)." <M-".toupper(c).">"
+      exec "map \e".tolower(c)." <M-".tolower(c).">"
+      exec "imap \e".tolower(c)." <M-".tolower(c).">"
       let c = nr2char(1+char2nr(c))
     endw
 
     for c in ["-", "=", ",", "."]
-        exec "map \e".c." <A-".c.">"
+        exec "map \e".c." <M-".c.">"
     endfor
-    map <Up> <A-Up>
-    map <Down> <A-Down>
+    map <Up> <M-Up>
+    map <Down> <M-Down>
 
     set timeoutlen=100
 endif
