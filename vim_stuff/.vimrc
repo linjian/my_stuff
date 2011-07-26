@@ -358,6 +358,8 @@ if !has('gui_running')
     for c in ["-", "=", ",", "."]
         exec "map \e".c." <A-".c.">"
     endfor
+    map <Up> <A-Up>
+    map <Down> <A-Down>
 
     set timeoutlen=100
 endif
