@@ -148,17 +148,14 @@ endif
 
 " Tabbar setting
 " Window movement mapping
-if has('gui_running')
-    map <A-h> <C-W>h
-    map <A-j> <C-W>j
-    map <A-k> <C-W>k
-    map <A-l> <C-W>l
-else
-    map <C-Left>  <C-W>h
-    map <C-Down>  <C-W>j
-    map <C-Up>    <C-W>k
-    map <C-Right> <C-W>l
-endif
+map <A-h> <C-W>h
+map <A-j> <C-W>j
+map <A-k> <C-W>k
+map <A-l> <C-W>l
+map <C-Left>  <C-W>h
+map <C-Down>  <C-W>j
+map <C-Up>    <C-W>k
+map <C-Right> <C-W>l
 " Switch buffers mapping for terminal
 if !has('gui_running')
     map <Leader>1 <C-[>1
@@ -378,7 +375,6 @@ set termencoding=utf-8
 " set fileformats=unix
 " set encoding=prc
 
-
 " Fix 'No newline at end of file' issue
 set noendofline
 set binary
@@ -386,3 +382,23 @@ set binary
 " switch number(2/4) of spaces that a <Tab> counts for
 map <silent> <A-t>2 :set tabstop=2<CR>
 map <silent> <A-t>4 :set tabstop=4<CR>
+
+" fix meta-keys in terminal
+if !has('gui_running')
+    " fix meta-keys which generate <Esc>a .. <Esc>z
+    let c='a'
+    while c <= 'z'
+      " exec "set <M-".toupper(c).">=\e".c
+      " exec "set <M-".tolower(c).">=\e".c
+      " exec "map \e".toupper(c)." <A-".toupper(c).">"
+      exec "map \e".tolower(c)." <A-".tolower(c).">"
+      exec "imap \e".tolower(c)." <A-".tolower(c).">"
+      let c = nr2char(1+char2nr(c))
+    endw
+
+    for c in ["-", "=", ",", ".", "]", "[", "<Down>", "<Up>"]
+        exec "map \e".c." <A-".c.">"
+    endfor
+
+    set timeoutlen=100
+endif
