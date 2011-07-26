@@ -350,7 +350,7 @@ if !has('gui_running')
       let c = nr2char(1+char2nr(c))
     endw
 
-    for c in ["-", "=", ",", ".", "]", "[", "<Down>", "<Up>"]
+    for c in ["-", "=", ",", "."]
         exec "map \e".c." <A-".c.">"
     endfor
 
