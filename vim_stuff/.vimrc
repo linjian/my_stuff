@@ -203,11 +203,7 @@ map <silent> <Leader>e :e ~/.vimrc<cr>
 " ********************* For windows *******************
 
 " Highlight current
-if has("gui_running")
-    set cursorline
-    "hi cursorline guibg=#333333
-    "hi CursorColumn guibg=#333333
-endif
+set cursorline
 
 " Turn on Wild menu
 set wildmenu
