@@ -31,7 +31,8 @@ function! s:load_project(project_name)
 endfunction
 
 function! s:set_for_code_folding()
-    set foldmethod=syntax
+    " set foldmethod to syntax will make code completion to be very slow
+    " set foldmethod=syntax
     set foldlevel=99
 endfunction
 
