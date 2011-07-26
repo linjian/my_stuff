@@ -123,6 +123,11 @@ endif
 " Use option (alt) key as meta key
 if has('gui_running') && has('gui_macvim')
     set macmeta
+    " since I mapped <A-Down> in .vimrc and I found that <A-Down> mapping has been override somewhere in GUI mode.
+    " I execute command ":verbose map <A-Down>" to see where it was last defined, and it turns out in
+    " /Applications/MacVim.app/Contents/Resources/vim/gvimrc
+    " So I add following line to disable the "HIG Cmd and Option movement mappings"
+    let macvim_skip_cmd_opt_movement = 1
 endif
 
 " xargs on Mac doesn't support --null, so change it to -0 instead
