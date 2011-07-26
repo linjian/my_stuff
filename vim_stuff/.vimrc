@@ -119,21 +119,6 @@ if has("gui_running")
     endif
 endif
 
-" Set project-flags
-let g:proj_flags="imstg"
-" Project-adding-mappings
-nmap <silent> <Leader>P :Project<CR>
-" Define command for opening maui project
-command! Pui Project ~/.vimproject_maui
-" Define command for opening adaptor project
-command! Padaptor Project ~/.vimproject_adaptor_branches
-
-" Minibufexpl setting
-"  let g:miniBufExplMapWindowNavVim = 1
-"  let g:miniBufExplMapWindowNavArrows = 1
-"  let g:miniBufExplMapCTabSwitchBufs = 1
-"  let g:miniBufExplModSelTarget = 1
-
 " ********************* For Mac *********************
 " Use option (alt) key as meta key
 if has('gui_running') && has('gui_macvim')
@@ -146,7 +131,6 @@ if has('mac') || has('macunix') || has('gui_macvim')
 endif
 " ********************* For Mac *********************
 
-" Tabbar setting
 " Window movement mapping
 map <A-h> <C-W>h
 map <A-j> <C-W>j
@@ -156,24 +140,6 @@ map <C-Left>  <C-W>h
 map <C-Down>  <C-W>j
 map <C-Up>    <C-W>k
 map <C-Right> <C-W>l
-" Switch buffers mapping for terminal
-if !has('gui_running')
-    map <Leader>1 <C-[>1
-    map <Leader>2 <C-[>2
-    map <Leader>3 <C-[>3
-    map <Leader>4 <C-[>4
-    map <Leader>5 <C-[>5
-    map <Leader>6 <C-[>6
-    map <Leader>7 <C-[>7
-    map <Leader>8 <C-[>8
-    map <Leader>9 <C-[>9
-    map <Leader>0 <C-[>0
-endif
-" Setting this to 0 will mean the window gets as big as
-" needed to fit all your buffers."
-" let g:Tb_MaxSize = 0
-" Update Explorer without navigating
-" map <silent> <F5> :TbAup<CR>
 
 " Set commenter
 let NERDSpaceDelims = 1
@@ -326,12 +292,6 @@ else
     map ,e :e <C-R>=expand("%:p:h") . "\" <CR>
 endif
 
-" Close TabBar, Close Project, and then quit from Vim
-" Thus Vim can save session correctly before quit
-" map <silent> <A-z> :TbStop<CR><C-W>hZZ:q<CR>
-map <silent> <A-z> :NERDTreeClose<CR>:qa<CR>
-
-
 " Jump to the next/previous in quickfix list
 map <silent> <A-n> :cnext<CR>
 map <silent> <A-p> :cprevious<CR>
@@ -351,9 +311,6 @@ let g:backup_purge=200
 " Act as <F12> toggle project tree
 nmap <silent> <F12> :NERDTreeToggle<CR>
 
-" Toggle tabbar
-" nmap <silent> <F4> :TbToggle<CR>
-
 " Set default project root path
 if !has("g:my_project_root")
     let g:my_project_root = '.'
@@ -361,9 +318,6 @@ endif
 
 " Always display the status line
 set laststatus=2
-
-" Sort by the buffer's name -- bufexplorer
-let g:bufExplorerSortBy='name'
 
 " Cursor one line at a time when :set wrap
 nnoremap <Down> gj
