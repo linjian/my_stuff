@@ -26,9 +26,13 @@ command! LoadDpu call s:load_project('dpu')
 function! s:load_project(project_name)
     call s:set_for_code_folding()
     call s:set_my_project_root(a:project_name)
-    call s:open_session(a:project_name)
-    " call s:open_project(a:project_name)
+    " call s:open_session(a:project_name)
     call s:open_project_with_nerdtree(a:project_name)
+endfunction
+
+function! s:set_for_code_folding()
+    set foldmethod=syntax
+    set foldlevel=99
 endfunction
 
 function! s:set_my_project_root(project_name)
@@ -41,21 +45,6 @@ function! s:open_session(project_name)
     " Save and hide the tabbar
     execute "normal \<C-W>t"
     execute "update"
-    " execute "TbStop"
-endfunction
-
-function! s:set_for_code_folding()
-    set foldmethod=syntax
-    set foldlevel=99
-endfunction
-
-function! s:open_project(project_name)
-    execute "Project ~/.vimproject_" . a:project_name
-    " Cause we've set foldlevel=99, all folds will be unfolded when open project
-    " window. So using zM to close all folds.
-    execute "normal zM"
-    " Move the cursor to the main window(right and bottom)
-    execute "normal \3<C-W>l\<C-W>b"
 endfunction
 
 function! s:open_project_with_nerdtree(project_name)
@@ -63,8 +52,8 @@ function! s:open_project_with_nerdtree(project_name)
     let project_path = "~/workspace/repository/" . a:project_name
     execute "NERDTree " . project_path
     execute "cd " . project_path
-    " Move the cursor to the main window(right and bottom)
-    execute "normal \3<C-W>l\<C-W>b"
+    " Move the cursor to the main window(right and bottom). Works only if session exists
+    " execute "normal \3<C-W>l\<C-W>b"
     " Hide the NERD tree
     execute "NERDTreeToggle"
 endfunction
