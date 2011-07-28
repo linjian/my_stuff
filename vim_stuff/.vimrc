@@ -249,9 +249,16 @@ nnoremap w= <C-w>=
 
 " Set current window highest possible
 nnoremap w<Up> <C-w>_
-
 " Set current window height to 1
-nnoremap w<Down> z1<CR>
+nnoremap w<Down> 1<C-w>_
+
+" Set current window widest possible
+nnoremap w<Left> :vertical-resize<CR>
+" Set current window width to 1
+nnoremap w<Right> :vertical-resize 1<CR>
+
+" Don't make all windows to be the same size after splitting or closing a window
+set noequalalways
 
 " Jump to change Mapping
 map <M-]> ]c
