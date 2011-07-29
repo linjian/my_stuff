@@ -33,7 +33,9 @@ endfunction
 function! s:set_for_code_folding()
     " set foldmethod to syntax will make code completion to be very slow
     " set foldmethod=syntax
-    set foldlevel=99
+
+    " has been moved to .vimrc
+    " set foldlevel=99
 endfunction
 
 function! s:set_my_project_root(project_name)

@@ -366,3 +366,35 @@ if !has('gui_running')
 
     set timeoutlen=100
 endif
+
+" For taglist.vim {{{
+" Toggle the taglist window
+nnoremap <silent> <F8> :TlistToggle<CR>
+
+" Specify the path of exuberant ctags
+let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+
+" Move the cursor to the taglist window as opening it
+let Tlist_GainFocus_On_ToggleOpen = 1
+
+" Display the tags for only the current window
+let Tlist_Show_One_File = 1
+
+" Automatically close the fold for the inactive files/buffers and open only for the current buffer in the taglist window
+let Tlist_File_Fold_Auto_Close = 1
+
+" Reduce the number of empty lines in the taglist window
+let Tlist_Compact_Format = 1
+
+" Not display the scope of the tags next to the tag names
+let Tlist_Display_Tag_Scope = 0
+" }}}
+
+" Enable modeline option so a number of lines at the beginning and end of the file are checked for modelines.
+set modeline
+
+" Unfold by default
+set foldlevel=99
+
+"=============================================================================
+" vim: set fdm=marker:
