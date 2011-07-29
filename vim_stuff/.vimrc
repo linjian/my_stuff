@@ -209,30 +209,14 @@ set cursorline
 set wildmenu
 
 " Bracket auto complete
-imap ( ()<Esc>i
-imap ) <C-r>=ClosePair(')')<CR>
-imap { {}<Esc>i
-imap } <C-r>=ClosePair('}')<CR>
-imap [ []<Esc>i
-imap ] <C-r>=ClosePair(']')<CR>
 imap < <><Esc>i
 imap > <C-r>=ClosePair('>')<CR>
-imap " <C-r>=CloseQuote('"')<CR>
-imap ' <C-r>=CloseQuote("'")<CR>
 
 function! ClosePair(char)
     if getline('.')[col('.') - 1] == a:char
         return "\<Right>"
     else
         return a:char
-    endif
-endfunction
-
-function! CloseQuote(char)
-    if getline('.')[col('.') - 1] == a:char
-        return "\<Right>"
-    else
-        return a:char . a:char . "\<left>"
     endif
 endfunction
 
