@@ -208,18 +208,6 @@ set cursorline
 " Turn on Wild menu
 set wildmenu
 
-" Bracket auto complete
-imap < <><Esc>i
-imap > <C-r>=ClosePair('>')<CR>
-
-function! ClosePair(char)
-    if getline('.')[col('.') - 1] == a:char
-        return "\<Right>"
-    else
-        return a:char
-    endif
-endfunction
-
 " Increase and decrease current window height by 1
 map <M--> <C-w>-
 map <M-=> <C-w>+
@@ -379,6 +367,11 @@ set modeline
 
 " Unfold by default
 set foldlevel=99
+
+" Define characters to auto close
+" Refer to http://www.vim.org/scripts/script.php?script_id=2009
+"   cause there are more than one autoclose.vim plugins
+let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"', "'": "'", '<': '>'}
 
 "=============================================================================
 " vim: set fdm=marker:
