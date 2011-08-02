@@ -63,9 +63,6 @@ endif " has("autocmd")
 
 " My Setting {{{1
 "=============================================================================
-" Load matchit (% to bounce from do to end, etc.)
-runtime! macros/matchit.vim
-
 augroup myfiletypes
     " Clear old autocmds in group
     autocmd!
