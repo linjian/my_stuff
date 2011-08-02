@@ -1,20 +1,5 @@
-
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2006 Nov 16
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
-
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-    finish
-endif
-
+" From sample vimrc file {{{1
+"=============================================================================
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -22,18 +7,13 @@ set nocompatible
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-if has("vms")
-    set nobackup		" do not keep a backup file, use versions instead
-else
-    set backup		" keep a backup file
-endif
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
+" keep a backup file
+set backup
 
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
+set history=50          " keep 50 lines of command line history
+set ruler               " show the cursor position all the time
+set showcmd             " display incomplete commands
+set incsearch           " do incremental searching
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -76,23 +56,13 @@ if has("autocmd")
 
 else
 
-    set autoindent		" always set autoindenting on
+    set autoindent              " always set autoindenting on
 
 endif " has("autocmd")
+" }}}1
 
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-"command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-"	 	\ | wincmd p | diffthis
-
-
-
-" """"""""""""""""""""""""" My Setting """"""""""""""""""""""""
-" For Ruby/Rails setting
-set nocompatible          " We're running Vim, not Vi!
-syntax on                 " Enable syntax highlighting
-filetype plugin indent on " Enable filetype-specific indenting and plugins
-
+" My Setting {{{1
+"=============================================================================
 " Load matchit (% to bounce from do to end, etc.)
 runtime! macros/matchit.vim
 
@@ -102,9 +72,6 @@ augroup myfiletypes
     " autoindent with two spaces, always expand tabs
     autocmd FileType ruby,eruby,yaml set autoindent shiftwidth=2 softtabstop=2 expandtab tabstop=2
 augroup END
-
-" No backup
-"  set nobackup
 
 " Set gui font
 if has("gui_running")
@@ -339,7 +306,7 @@ if !has('gui_running')
     set timeoutlen=100
 endif
 
-" For taglist.vim {{{
+" For taglist.vim {{{2
 " Toggle the taglist window
 nnoremap <silent> <F8> :TlistToggle<CR>
 
@@ -360,7 +327,7 @@ let Tlist_Compact_Format = 1
 
 " Not display the scope of the tags next to the tag names
 let Tlist_Display_Tag_Scope = 0
-" }}}
+" }}}2
 
 " Enable modeline option so a number of lines at the beginning and end of the file are checked for modelines.
 set modeline
@@ -375,6 +342,7 @@ let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"', "'": "'", '<': '
 
 " Expand existing tabs in visual mode
 vmap <Tab> :retab<CR>
+" }}}1
 
 "=============================================================================
 " vim: set foldmethod=marker:
