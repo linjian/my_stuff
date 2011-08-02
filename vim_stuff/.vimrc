@@ -373,5 +373,8 @@ set foldlevel=99
 "   cause there are more than one autoclose.vim plugins
 let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"', "'": "'", '<': '>'}
 
+" Expand existing tabs in visual mode
+vmap <Tab> :retab<CR>
+
 "=============================================================================
 " vim: set foldmethod=marker:
