@@ -63,4 +63,4 @@ endfunction
 
 " }}}1
 "=============================================================================
-" vim: set fdm=marker:
+" vim: set foldmethod=marker:

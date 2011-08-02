@@ -95,4 +95,4 @@ command! -nargs=1 AddFuzzyRoot call Set_Fuzzy_Root('<args>', 0)
 
 " }}}1
 "=============================================================================
-" vim: set fdm=marker:
+" vim: set foldmethod=marker:
