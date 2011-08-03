@@ -24,3 +24,6 @@ fi
 
 # git command auto completion
 source ~/.git-completion.bash
+
+# Turn off the terminal driver flow control to disable Ctrl-s and Ctrl-q in terminal for vim
+stty -ixon -ixoff
