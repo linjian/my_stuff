@@ -259,12 +259,11 @@ imap <C-s> <Esc>:update<CR>a
 " }}}3
 
 " Copy and paste with clipboard {{{3
-" current selection
-map <C-c> "*y
-map <C-v> "*p
-" real clipboard
-map <C-C> "+y
-map <C-V> "+p
+map <C-c> "+y
+map <C-v> "+p
+
+" Paste in command mode
+cmap <C-V> <C-r>+
 " }}}3
 
 " Fast reloading of the .vimrc
