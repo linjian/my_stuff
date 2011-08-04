@@ -1,60 +1,207 @@
-*Q_lr*		Left-right motions
+*Q_lr*          Left-right motions
 
-|g0|	   g0		to first character in screen line (differs from "0"
-			   when lines wrap)
-|g^|	   g^		to first non-blank character in screen line (differs
-			   from "^" when lines wrap)
-|g$|	N  g$		to last character in screen line (differs from "$"
-|gm|	   gm		to middle of the screen line
-|bar|	N  |		to column N (default: 1)
-|f|	N  f{char}	to the Nth occurrence of {char} to the right
-|F|	N  F{char}	to the Nth occurrence of {char} to the left
-|t|	N  t{char}	till before the Nth occurrence of {char} to the right
-|T|	N  T{char}	till before the Nth occurrence of {char} to the left
-|;|	N  ;		repeat the last "f", "F", "t", or "T" N times
-|,|	N  ,		repeat the last "f", "F", "t", or "T" N times in
-			   opposite direction
+|g0|       g0           to first character in screen line (differs from "0"
+                           when lines wrap)
+|g^|       g^           to first non-blank character in screen line (differs
+                           from "^" when lines wrap)
+|g$|    N  g$           to last character in screen line (differs from "$"
+|gm|       gm           to middle of the screen line
+|bar|   N  |            to column N (default: 1)
+|f|     N  f{char}      to the Nth occurrence of {char} to the right
+|F|     N  F{char}      to the Nth occurrence of {char} to the left
+|t|     N  t{char}      till before the Nth occurrence of {char} to the right
+|T|     N  T{char}      till before the Nth occurrence of {char} to the left
+|;|     N  ;            repeat the last "f", "F", "t", or "T" N times
+|,|     N  ,            repeat the last "f", "F", "t", or "T" N times in
+                           opposite direction
 ------------------------------------------------------------------------------
-*Q_ud*		Up-down motions
+*Q_ud*          Up-down motions
 
-|-|	N  -		up N lines, on the first non-blank character
-|+|	N  +		down N lines, on the first non-blank character (also:
-			   CTRL-M and <CR>)
-|N%|	N  %		goto line N percentage down in the file.  N must be
-			   given, otherwise it is the |%| command.
-|gk|	N  gk		up N screen lines (differs from "k" when line wraps)
-|gj|	N  gj		down N screen lines (differs from "j" when line wraps)
+      |-|     N  -            up N lines, on the first non-blank character
+|+|     N  +            down N lines, on the first non-blank character (also:
+                           CTRL-M and <CR>)
+|N%|    N  %            goto line N percentage down in the file.  N must be
+                           given, otherwise it is the |%| command.
+|gk|    N  gk           up N screen lines (differs from "k" when line wraps)
+|gj|    N  gj           down N screen lines (differs from "j" when line wraps)
 ------------------------------------------------------------------------------
-*Q_tm*		Text object motions
+*Q_tm*          Text object motions
 
-|)|	N  )		N sentences forward
-|(|	N  (		N sentences backward
-|}|	N  }		N paragraphs forward
-|{|	N  {		N paragraphs backward
+|)|     N  )            N sentences forward
+|(|     N  (            N sentences backward
+|}|     N  }            N paragraphs forward
+|{|     N  {            N paragraphs backward
 ------------------------------------------------------------------------------
-*Q_pa*		Pattern searches
+*Q_pa*          Pattern searches
 
-|gstar|	N  g*		like "*", but also find partial matches
-|g#|	N  g#		like "#", but also find partial matches
+|gstar| N  g*           like "*", but also find partial matches
+|g#|    N  g#           like "#", but also find partial matches
 
-|pattern|		Special characters in search patterns
+|pattern|               Special characters in search patterns
 
-			meaning		      magic   nomagic	~
-		       matches start of word	\<	<
-			 matches end of word	\>	>
+                        meaning               magic   nomagic   ~
+                       matches start of word    \<      <
+                         matches end of word    \>      >
 
-     matches 0 or more of the preceding atom	*	\*
-     matches 1 or more of the preceding atom	\+	\+
-	matches 0 or 1 of the preceding atom	\=	\=
+     matches 0 or more of the preceding atom    *       \*
+     matches 1 or more of the preceding atom    \+      \+
+        matches 0 or 1 of the preceding atom    \=      \=
 
-|search-offset|		Offsets allowed after search command
+|search-offset|         Offsets allowed after search command
 
-    [num]	[num] lines downwards, in column 1
-    +[num]	[num] lines downwards, in column 1
-    -[num]	[num] lines upwards, in column 1
-    e[+num]	[num] characters to the right of the end of the match
-    e[-num]	[num] characters to the left of the end of the match
-    s[+num]	[num] characters to the right of the start of the match
-    s[-num]	[num] characters to the left of the start of the match
-    b[+num]	[num] identical to s[+num] above (mnemonic: begin)
-    b[-num]	[num] identical to s[-num] above (mnemonic: begin)
+    [num]       [num] lines downwards, in column 1
+    +[num]      [num] lines downwards, in column 1
+    -[num]      [num] lines upwards, in column 1
+    e[+num]     [num] characters to the right of the end of the match
+    e[-num]     [num] characters to the left of the end of the match
+    s[+num]     [num] characters to the right of the start of the match
+    s[-num]     [num] characters to the left of the start of the match
+    b[+num]     [num] identical to s[+num] above (mnemonic: begin)
+    b[-num]     [num] identical to s[-num] above (mnemonic: begin)
+------------------------------------------------------------------------------
+*Q_ma*          Marks and motions
+
+|`<|       `<           go to the start of the (previous) Visual area
+|`>|       `>           go to the end of the (previous) Visual area
+|CTRL-O|  N  CTRL-O     go to Nth older position in jump list
+|CTRL-I|  N  CTRL-I     go to Nth newer position in jump list
+|:ju|     :ju[mps]      print the jump list
+------------------------------------------------------------------------------
+*Q_vm*          Various motions
+
+|%|        %            find the next brace, bracket, comment, or "#if"/
+                           "#else"/"#endif" in this line and go to its match
+|H|     N  H            go to the Nth line in the window, on the first
+                           non-blank
+|M|        M            go to the middle line in the window, on the first
+                           non-blank
+|L|     N  L            go to the Nth line from the bottom, on the first
+                           non-blank
+------------------------------------------------------------------------------
+*Q_ta*          Using tags
+
+|CTRL-]|      CTRL-]            Jump to the tag under cursor, unless changes
+                                   have been made
+|CTRL-T|   N  CTRL-T            Jump back from Nth older tag in tag list
+|CTRL-W_}|     CTRL-W }         like CTRL-] but show tag in preview window
+------------------------------------------------------------------------------
+*Q_sc*          Scrolling
+
+|CTRL-E|        N  CTRL-E       window N lines downwards (default: 1)
+|CTRL-D|        N  CTRL-D       window N lines Downwards (default: 1/2 window)
+|CTRL-F|        N  CTRL-F       window N pages Forwards (downwards)
+|CTRL-Y|        N  CTRL-Y       window N lines upwards (default: 1)
+|CTRL-U|        N  CTRL-U       window N lines Upwards (default: 1/2 window)
+|CTRL-B|        N  CTRL-B       window N pages Backwards (upwards)
+|z<CR>|            z<CR> or zt  redraw, current line at top of window
+|z.|               z.    or zz  redraw, current line at center of window
+|z-|               z-    or zb  redraw, current line at bottom of window
+------------------------------------------------------------------------------
+*Q_ss*          Special keys in Insert mode
+
+|i_CTRL-V|      CTRL-V {char}..   insert character literally, or enter decimal
+                                     byte value
+|i_<NL>|        <NL> or <CR> or CTRL-M or CTRL-J
+                                  begin new line
+|i_CTRL-E|      CTRL-E            insert the character from below the cursor
+|i_CTRL-Y|      CTRL-Y            insert the character from above the cursor
+
+|i_CTRL-A|      CTRL-A            insert previously inserted text
+
+|i_<BS>|        <BS> or CTRL-H    delete the character before the cursor
+|i_CTRL-W|      CTRL-W            delete word before the cursor
+|i_CTRL-U|      CTRL-U            delete all entered characters in the current
+                                     line
+------------------------------------------------------------------------------
+*Q_de*          Deleting text
+
+|x|     N  x            delete N characters under and after the cursor
+|X|     N  X            delete N characters before the cursor
+              |v_d|     {visual}d       delete the highlighted text
+|D|     N  D            delete to the end of the line (and N-1 more lines)
+|v_J|   {visual}J       join the highlighted lines
+|gJ|    N  gJ           like "J", but without inserting spaces
+|v_gJ|  {visual}gJ      like "{visual}J", but without inserting spaces
+------------------------------------------------------------------------------
+*Q_ch*          Changing text
+
+|R|       N  R          enter Replace mode (repeat the entered text N times)
+|v_c|        {visual}c  change the highlighted text
+|cc|      N  cc         change N lines
+|S|       N  S          change N lines
+|C|       N  C          change to the end of the line (and N-1 more lines)
+
+|~|       N  ~          switch case for N characters and advance cursor
+|v_~|        {visual}~  switch case for highlighted text
+|v_u|        {visual}u  make highlighted text lowercase
+|v_U|        {visual}U  make highlighted text uppercase
+
+|CTRL-A|  N  CTRL-A     add N to the number at or after the cursor
+|CTRL-X|  N  CTRL-X     subtract N from the number at or after the cursor
+
+|:ce|     :[range]ce[nter] [width]
+                        center the lines in [range]
+|:le|     :[range]le[ft] [indent]
+                        left-align the lines in [range] (with [indent])
+|:ri|     :[range]ri[ght] [width]
+                        right-align the lines in [range]
+------------------------------------------------------------------------------
+*Q_co*          Complex changes
+
+|==|       N  ==        filter N lines through 'equalprg'
+|v_=|         {visual}=
+                        filter the highlighted lines through 'equalprg'
+|&|           &         Repeat previous ":s" on current line without options
+------------------------------------------------------------------------------
+*Q_vi*          Visual mode
+|v_o|      o            exchange cursor position with start of highlighting
+|gv|       gv           start highlighting on previous visual area
+|v_a>|     N  a>        Select "a <> block"
+|v_i>|     N  i>        Select "inner <> block"
+|v_at|     N  at        Select "a tag block" (from <aaa> to </aaa>)
+|v_it|     N  it        Select "inner tag block" (from <aaa> to </aaa>)
+|v_a`|     N  a`        Select "a backward quoted string"
+|v_i`|     N  i`        Select "inner backward quoted string"
+------------------------------------------------------------------------------
+*Q_op*          Options
+
+|:set|          :se[t] inv{option}        invert boolean option.
+|:set|          :se[t] {option}&          Reset {option} to its default value.
+------------------------------------------------------------------------------
+*Q_et*          External commands
+
+|:shell|        :sh[ell]        start a shell
+|:!|            :!{command}     execute {command} with a shell
+|K|                K            lookup keyword under the cursor with
+                                   'keywordprg' program (default: "man")
+------------------------------------------------------------------------------
+*Q_vc*          Various commands
+
+|ga|               ga           show ascii value of character under cursor in
+                                   decimal, hex, and octal
+|<Del>|            <Del>        while entering a count: delete last character
+|:redir|        :redir >{file}          redirect messages to {file}
+------------------------------------------------------------------------------
+*Q_ce*          Command-line editing
+
+|c_CTRL-R|      CTRL-R {0-9a-z"%#:-=}
+                                   insert the contents of a register
+|c_<S-Left>|    <S-Left>/<S-Right> cursor one word left/right
+|c_CTRL-B|      CTRL-B/CTRL-E      cursor to beginning/end of command-line
+
+|c_CTRL-W|      CTRL-W             delete the word in front of the cursor
+
+Context-sensitive completion on the command-line:
+
+|c_CTRL-D|      CTRL-D          list all names that match the pattern in
+                                   front of the cursor
+------------------------------------------------------------------------------
+*Q_ra*          Ex ranges
+
+|:range|        {number}        an absolute line number
+|:range|        .               the current line
+|:range|        $               the last line in the file
+|:range|        %               equal to 1,$ (the entire file)
+|:range|        *               equal to '<,'> (visual area)
+------------------------------------------------------------------------------
+*Q_wi*          Multi-window commands
