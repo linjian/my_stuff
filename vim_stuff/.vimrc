@@ -275,6 +275,8 @@ cmap <C-V> <C-r>+
 
 " Substitute all text that current visual area matched with last yank content
 vmap <C-p> "py:%s/<C-R>p/<C-R>0/gc<CR>
+" Substitute all text that last search pattern matched with last yank content
+nmap <C-p> :%s/<C-R>//<C-R>0/gc<CR>
 
 " Fast reloading of the .vimrc
 map <silent> <Leader>s :source $MYVIMRC<CR>
