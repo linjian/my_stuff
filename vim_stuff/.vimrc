@@ -179,6 +179,13 @@ let Tlist_Compact_Format = 1
 let Tlist_Display_Tag_Scope = 0
 " }}}3
 
+" Set for Vim Chinese Doc {{{3
+" The cn docs are installed here by default
+set runtimepath+=/usr/share/vim/vimfiles
+" Use en help first
+set helplang=en,cn
+" }}}3
+
 " Map for NERD_tree.vim
 nmap <silent> <F12> :NERDTreeToggle<CR>
 
