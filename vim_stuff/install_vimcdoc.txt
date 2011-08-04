@@ -1,0 +1,7 @@
+http://vimcdoc.sourceforge.net/
+
+tar zxvf vimcdoc-<version>.tar.gz
+cd vimcdoc-<version>
+sudo ./vimcdoc.sh -I
+
+See vimcdoc-<version>/INSTALL
