@@ -138,6 +138,10 @@ if (!g:isGUI)
       let c = nr2char(1+char2nr(c))
     endw
 
+    for i in range(0,9)
+        exec "map \e".i." <M-".i.">"
+    endfor
+
     for c in ["-", "=", ",", "."]
         exec "map \e".c." <M-".c.">"
     endfor
@@ -256,6 +260,22 @@ imap <M-l> <Right>
 imap <M-$> <Esc>A
 imap <M-^> <Esc>I
 imap <M-d> <Esc>ddi
+" }}}3
+
+" Tab page setting {{{3
+" Switch tab page by number
+for i in range(1,9)
+    exec "map <M-".i."> ".i."gt"
+endfor
+map <M-0> :tablast<CR>
+
+" Go to next/previous tab page
+map <C-Tab> gt
+map <C-S-Tab> gT
+
+" Describe the text to use in a label of the GUI tab page
+" + 1 filename
+set guitablabel=%M\ %N\ %t
 " }}}3
 
 " Quick save {{{3
