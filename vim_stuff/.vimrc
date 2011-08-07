@@ -273,9 +273,13 @@ map <M-0> :tablast<CR>
 map <C-Tab> gt
 map <C-S-Tab> gT
 
+" Move tab page to next/previous
+map <silent> th :execute "tabmove ".(tabpagenr()-2)<CR>
+map <silent> tl :execute "tabmove ".tabpagenr()<CR>
+
 " Describe the text to use in a label of the GUI tab page
-" + 1 filename
-set guitablabel=%M\ %N\ %t
+" 1:filename +
+set guitablabel=%N:%t\ %M%#HLTabLineSel#
 " }}}3
 
 " Quick save {{{3
