@@ -213,10 +213,9 @@ vmap <M-g>j "gy:execute "let g:Grep_Start_Dir=getcwd().'/public/javascripts/' \|
 vmap <M-g>c "gy:execute "let g:Grep_Start_Dir=getcwd().'/public/stylesheets/' \| Rgrep <C-R>g *.sass *.css"<CR>
 " }}}3
 
-" Add command for ack.vim
-" TODO: need to add mapping
-command! AckCurrent execute "tabnew | Ack ".expand("<cword>")
-command! AckYank execute "tabnew | Ack ".@"
+" Mapping for ack.vim
+nmap <M-a> :execute "tabnew \| Ack ".expand("<cword>")<CR>
+vmap <M-a> "ay:execute "tabnew \| Ack <C-R>a"<CR>
 
 " Set for backup.vim
 " http://www.vim.org/scripts/script.php?script_id=1537
