@@ -193,10 +193,25 @@ set helplang=en,cn
 " Map for NERD_tree.vim
 nmap <silent> <F12> :NERDTreeToggle<CR>
 
-" Configurate it for grep.vim
+" Set for grep.vim {{{3
 " The 'Grep_Skip_Dirs' variable specifies the list of directories to skip
 " while doing recursive searches. By default, this is set to 'RCS CVS SCCS'.
 let Grep_Skip_Dirs = '.svn .git log .backups tmp images'
+
+" Mapping for normal mode
+nmap <M-g>a :execute "let g:Grep_Start_Dir=getcwd() \| Rgrep <cword> *"<CR>
+nmap <M-g>r :execute "let g:Grep_Start_Dir=getcwd() \| Rgrep <cword> *.rb"<CR>
+nmap <M-g>h :execute "let g:Grep_Start_Dir=getcwd().'/app/views/' \| Rgrep <cword> *.haml *.html"<CR>
+nmap <M-g>j :execute "let g:Grep_Start_Dir=getcwd().'/public/javascripts/' \| Rgrep <cword> *.js"<CR>
+nmap <M-g>c :execute "let g:Grep_Start_Dir=getcwd().'/public/stylesheets/' \| Rgrep <cword> *.sass *.css"<CR>
+
+" Mapping for visual mode
+vmap <M-g>a "gy:execute "let g:Grep_Start_Dir=getcwd() \| Rgrep <C-R>g *"<CR>
+vmap <M-g>r "gy:execute "let g:Grep_Start_Dir=getcwd() \| Rgrep <C-R>g *.rb"<CR>
+vmap <M-g>h "gy:execute "let g:Grep_Start_Dir=getcwd().'/app/views/' \| Rgrep <C-R>g *.haml *.html"<CR>
+vmap <M-g>j "gy:execute "let g:Grep_Start_Dir=getcwd().'/public/javascripts/' \| Rgrep <C-R>g *.js"<CR>
+vmap <M-g>c "gy:execute "let g:Grep_Start_Dir=getcwd().'/public/stylesheets/' \| Rgrep <C-R>g *.sass *.css"<CR>
+" }}}3
 
 " Add command for ack.vim
 " TODO: need to add mapping
