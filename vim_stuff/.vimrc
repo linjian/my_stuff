@@ -198,6 +198,11 @@ nmap <silent> <F12> :NERDTreeToggle<CR>
 " while doing recursive searches. By default, this is set to 'RCS CVS SCCS'.
 let Grep_Skip_Dirs = '.svn .git log .backups tmp images'
 
+" Add command for ack.vim
+" TODO: need to add mapping
+command! AckCurrent execute "tabnew | Ack ".expand("<cword>")
+command! AckYank execute "tabnew | Ack ".@"
+
 " Set for backup.vim
 " http://www.vim.org/scripts/script.php?script_id=1537
 " NOTE: This plugin has been hacked by myself
