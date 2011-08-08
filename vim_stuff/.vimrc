@@ -190,9 +190,6 @@ set runtimepath+=/usr/share/vim/vimfiles
 set helplang=en,cn
 " }}}3
 
-" Map for NERD_tree.vim
-nmap <silent> <F12> :NERDTreeToggle<CR>
-
 " Set for grep.vim {{{3
 " The 'Grep_Skip_Dirs' variable specifies the list of directories to skip
 " while doing recursive searches. By default, this is set to 'RCS CVS SCCS'.
@@ -234,6 +231,9 @@ endif
 " Refer to http://www.vim.org/scripts/script.php?script_id=2009
 "   cause there are more than one autoclose.vim plugins
 let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"', "'": "'", '<': '>'}
+
+" Map for NERD_tree.vim
+nmap <silent> <F12> :NERDTreeToggle<CR>
 " }}}2
 
 " Custom mapping {{{2
