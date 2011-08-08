@@ -514,6 +514,9 @@ function! s:RunGrepRecursive(cmd_name, grep_cmd, action, ...)
     if g:Grep_Cygwin_Find == 1
         let cwd = substitute(cwd, "\\", "/", "g")
     endif
+    if exists("g:Grep_Start_Dir") && g:Grep_Start_Dir != ""
+        let cwd = g:Grep_Start_Dir
+    endif
     if v:version >= 700
         let startdir = input("Start searching from directory: ", cwd, "dir")
     else
@@ -522,6 +525,7 @@ function! s:RunGrepRecursive(cmd_name, grep_cmd, action, ...)
     if startdir == ""
         return
     endif
+    let g:Grep_Start_Dir = startdir
 
     if filepattern == ""
         let filepattern = input("Search in files matching pattern: ", 

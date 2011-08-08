@@ -130,20 +130,20 @@ if (!g:isGUI)
     " fix meta-keys which generate <Esc>a .. <Esc>z
     let c='a'
     while c <= 'z'
-      " exec "set <M-".toupper(c).">=\e".c
-      " exec "set <M-".tolower(c).">=\e".c
-      " exec "map \e".toupper(c)." <M-".toupper(c).">"
-      exec "map \e".tolower(c)." <M-".tolower(c).">"
-      exec "imap \e".tolower(c)." <M-".tolower(c).">"
+      " execute "set <M-".toupper(c).">=\e".c
+      " execute "set <M-".tolower(c).">=\e".c
+      " execute "map \e".toupper(c)." <M-".toupper(c).">"
+      execute "map \e".tolower(c)." <M-".tolower(c).">"
+      execute "imap \e".tolower(c)." <M-".tolower(c).">"
       let c = nr2char(1+char2nr(c))
     endw
 
     for i in range(0,9)
-        exec "map \e".i." <M-".i.">"
+        execute "map \e".i." <M-".i.">"
     endfor
 
     for c in ["-", "=", ",", "."]
-        exec "map \e".c." <M-".c.">"
+        execute "map \e".c." <M-".c.">"
     endfor
     map <Up> <M-Up>
     map <Down> <M-Down>
@@ -196,7 +196,7 @@ nmap <silent> <F12> :NERDTreeToggle<CR>
 " Configurate it for grep.vim
 " The 'Grep_Skip_Dirs' variable specifies the list of directories to skip
 " while doing recursive searches. By default, this is set to 'RCS CVS SCCS'.
-let Grep_Skip_Dirs = '.svn log'
+let Grep_Skip_Dirs = '.svn .git log .backups tmp images'
 
 " Set for backup.vim
 " http://www.vim.org/scripts/script.php?script_id=1537
@@ -265,7 +265,7 @@ imap <M-d> <Esc>ddi
 " Tab page setting {{{3
 " Switch tab page by number
 for i in range(1,9)
-    exec "map <M-".i."> ".i."gt"
+    execute "map <M-".i."> ".i."gt"
 endfor
 map <M-0> :tablast<CR>
 
