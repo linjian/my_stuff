@@ -210,6 +210,18 @@ vmap <M-g>j "gy:execute "let g:Grep_Start_Dir=getcwd().'/public/javascripts/' \|
 vmap <M-g>c "gy:execute "let g:Grep_Start_Dir=getcwd().'/public/stylesheets/' \| Rgrep <C-R>g *.sass *.css"<CR>
 " }}}3
 
+" Set for rails.vim {{{3
+nmap <M-r>a  :A<CR>
+nmap <M-r>ae :AE<CR>
+nmap <M-r>as :AS<CR>
+nmap <M-r>av :AV<CR>
+
+nmap <M-r>r  :R<CR>
+nmap <M-r>re :RE<CR>
+nmap <M-r>rs :RS<CR>
+nmap <M-r>rv :RV<CR>
+" }}}3
+
 " Mapping for ack.vim
 nmap <M-a> :execute "tabnew \| Ack ".expand("<cword>")<CR>
 vmap <M-a> "ay:execute "tabnew \| Ack <C-R>a"<CR>
