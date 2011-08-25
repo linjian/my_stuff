@@ -3,3 +3,5 @@
 *.swp
 .netrwhist
 sessions/
+Gemfile.lock
+log/
