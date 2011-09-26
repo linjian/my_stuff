@@ -13,6 +13,7 @@ alias mmconsole='~/.gem/ruby/1.8/gems/mongo_mapper-0.8.6/bin/mmconsole'
 alias mvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
 # Using sudo with an alias
 alias sudo='sudo '
+alias rspec-with-gc='DEFER_GC=10 rspec'
 
 # The Vim version Mac OS X 10.6 pre-installed does NOT support Ruby
 # Use MacVim in terminal instead

@@ -5,3 +5,4 @@
 sessions/
 Gemfile.lock
 log/
+spec/support/deferred_garbage_collection_all_in_one.rb
