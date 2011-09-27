@@ -14,6 +14,7 @@ alias mvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
 # Using sudo with an alias
 alias sudo='sudo '
 alias rspec-with-gc='DEFER_GC=10 rspec'
+alias cucumber-with-gc='DEFER_GC=10 cucumber'
 
 # The Vim version Mac OS X 10.6 pre-installed does NOT support Ruby
 # Use MacVim in terminal instead

@@ -2,8 +2,10 @@
 
 # Usage:
 # DEFER_GC=10 rspec spec/
+# DEFER_GC=10 cucumber features/
 
 # put it to spec/support/
+#        or feature/support/hooks.rb
 class DeferredGarbageCollection
   DEFERRED_GC_THRESHOLD = (ENV['DEFER_GC'] || -1).to_f
 
@@ -23,13 +25,24 @@ class DeferredGarbageCollection
   end
 end
 
-# put it to spec/spec_helper.rb
-RSpec.configure do |config|
-  config.before(:all) do
+if defined?(Cucumber)
+  # put it to feature/support/hooks.rb
+  Before do
     DeferredGarbageCollection.start
   end
 
-  config.after(:all) do
+  After do
     DeferredGarbageCollection.reconsider
+  end
+elsif defined?(RSpec)
+  # put it to spec/spec_helper.rb
+  RSpec.configure do |config|
+    config.before(:all) do
+      DeferredGarbageCollection.start
+    end
+
+    config.after(:all) do
+      DeferredGarbageCollection.reconsider
+    end
   end
 end
