@@ -34,3 +34,9 @@ stty -ixon -ixoff
 
 # Command Line Feedback from RVM and Git
 export PS1="\[\033[01;34m\]\$(~/.rvm/bin/rvm-prompt) \[\033[01;32m\]\w\[\033[00;33m\]\$(__git_ps1 \" (%s)\") \[\033[01;36m\]\$\[\033[00m\] "
+
+# Add path for mysql on Mac
+export PATH=/usr/local/mysql/bin:$PATH
+
+# Fix issue for mysql 5.5 on Mac OS X 10.6
+export DYLD_LIBRARY_PATH="/usr/local/mysql/lib:$DYLD_LIBRARY_PATH"
