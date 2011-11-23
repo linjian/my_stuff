@@ -4,7 +4,7 @@
 
 "=============================================================================
 " COMMANDS: {{{1
-command! LoadDpu call s:load_project('~/workspace/repository/dpu/')
+command! LoadDpu call s:load_project('~/workspace/dpu/')
 " }}}1
 "=============================================================================
 " FUNCTIONS: {{{1
