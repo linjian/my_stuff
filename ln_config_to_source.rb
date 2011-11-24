@@ -28,5 +28,9 @@ cmd = "ln -s #{SOURCE_DIR}/#{CONFIG_FILES_DIR}/.gitignore ~/.gitignore"
 `#{cmd}`
 puts cmd
 
+cmd = "ln -s #{SOURCE_DIR}/vimwiki ~/vimwiki"
+`#{cmd}`
+puts cmd
+
 # ln -s ~/mystuff/code/deferred_garbage_collection_all_in_one.rb /Users/apple/workspace/repository/dpu/spec/support/deferred_garbage_collection_all_in_one.rb
 # ln -s ~/mystuff/code/deferred_garbage_collection_all_in_one.rb /Users/apple/workspace/repository/dpu/features/step_definitions/deferred_garbage_collection_all_in_one.rb
