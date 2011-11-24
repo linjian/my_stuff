@@ -1,0 +1,2 @@
+= Tips =
+  * MultipleSshIssue -- Permission to linjian/my_stuff.git denied to jianlin@xxx.com.
