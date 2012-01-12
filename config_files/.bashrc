@@ -17,6 +17,7 @@ alias sudo='sudo '
 alias rspec-with-gc='DEFER_GC=10 rspec'
 alias cucumber-with-gc='DEFER_GC=10 cucumber'
 alias nginxStart='sudo /opt/nginx/sbin/nginx'
+alias nginxStop='sudo /opt/nginx/sbin/nginx -s stop'
 alias nginxReload='sudo /opt/nginx/sbin/nginx -s reload'
 
 # The Vim version Mac OS X 10.6 pre-installed does NOT support Ruby
