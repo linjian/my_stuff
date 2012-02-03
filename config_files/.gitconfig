@@ -8,15 +8,18 @@
 [alias]
 	co = checkout
 	sw = checkout
-	revertfile = checkout
+	revert-local = checkout -- ; copies files from the stage to the working directory
+	revert-all = checkout HEAD -- ; copies files from the latest commit to both the stage and the working directory
 	branch-new-and-switch = checkout -b
-	br = branch
 	branch-delete = branch -d
+	br = branch
 	ci = commit
 	st = status
 	unstage = reset HEAD --
 	uncommit = reset --soft HEAD~1
 	last = log -1 HEAD
 	push-master = push origin master
+	diffall = diff HEAD ; diff local(include staged files) with last commit
+	stagediff = diff --cached ; diff stage with last commit
 [core]
 	excludesfile = ~/.gitignore
