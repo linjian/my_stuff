@@ -101,6 +101,9 @@ if (g:isGUI)
         set guifont=Monospace\ 12
     elseif has("x11")
         set guifont=-*-courier-medium-r-normal-*-*-180-*-*-m-*-*
+    elseif (g:isMac)
+        " set guifont=Monaco:h15
+        set guifont=Menlo:h15
     else
         " set guifont=Courier_New:h11:cDEFAULT
         set guifont=Courier_New:h16
