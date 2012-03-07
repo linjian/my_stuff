@@ -20,7 +20,7 @@
 	last = log -1 HEAD
 	push-master = push origin master
 	diffall = diff HEAD ; diff local(include staged files) with last commit
-	stagediff = diff --cached ; diff stage with last commit
+	diffstage = diff --cached ; diff stage with last commit
 [core]
 	excludesfile = ~/.gitignore
 ; Fix the "error: There was a problem with the editor 'vi'." while commit.
