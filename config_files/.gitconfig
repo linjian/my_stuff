@@ -21,5 +21,7 @@
 	push-master = push origin master
 	diffall = diff HEAD ; diff local(include staged files) with last commit
 	stagediff = diff --cached ; diff stage with last commit
+	testclean = clean -nd
+	reallyclean = clean -fd
 [core]
 	excludesfile = ~/.gitignore
