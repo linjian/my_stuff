@@ -1,3 +1,6 @@
+# This is a patch and unit test for stub issue of one association.
+# Only for mongo mapper. But you can easily modify it to fit other ORM frameworks.
+
 # Put it in spec/support/one_association_stub.rb
 module OneAssociationStub
   def stub(*args, &block)
@@ -91,6 +94,8 @@ end
 # Add the following line to spec/spec_helper.rb
 RSpec.configure do |config|
   config.before(:each) do
+    # It'll run after setup_mocks_for_rspec so that the patch works.
+    # Please see rspec-core-2.8.0/lib/rspec/core/example.rb
     Object.class_eval { include OneAssociationStub }
   end
 end
