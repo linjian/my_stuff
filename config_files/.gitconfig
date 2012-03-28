@@ -20,8 +20,12 @@
 	last = log -1 HEAD
 	push-master = push origin master
 	diffall = diff HEAD ; diff local(include staged files) with last commit
-	stagediff = diff --cached ; diff stage with last commit
+	diffstage = diff --cached ; diff stage with last commit
 	testclean = clean -nd
 	reallyclean = clean -fd
 [core]
 	excludesfile = ~/.gitignore
+; Fix the "error: There was a problem with the editor 'vi'." while commit.
+; The reason is that I installed MacVim, and added vim alias to use MacVim in terminal.
+; But the exit code of MacVim is non-zero, so here we use pre-installed vim instead.
+	editor = /usr/bin/vim

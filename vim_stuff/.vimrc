@@ -90,7 +90,7 @@ augroup myfiletypes
     " Clear old autocmds in group
     autocmd!
     " autoindent with two spaces, always expand tabs
-    autocmd FileType ruby,eruby,yaml set autoindent shiftwidth=2 softtabstop=2 expandtab tabstop=2
+    autocmd FileType ruby,eruby,yaml set autoindent tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 augroup END
 " }}}2
 
@@ -101,6 +101,9 @@ if (g:isGUI)
         set guifont=Monospace\ 12
     elseif has("x11")
         set guifont=-*-courier-medium-r-normal-*-*-180-*-*-m-*-*
+    elseif (g:isMac)
+        " set guifont=Monaco:h15
+        set guifont=Menlo:h15
     else
         " set guifont=Courier_New:h11:cDEFAULT
         set guifont=Courier_New:h16
