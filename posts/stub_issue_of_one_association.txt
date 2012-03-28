@@ -1,3 +1,5 @@
+写测试的时候遇到一个问题，给一个model对象stub一个方法，结果死活不成功，被stub的方法照样被正常调用。
+示例如下：
 # app/models/user.rb
 class User
   include MongoMapper::Document
@@ -26,7 +28,8 @@ require 'spec_helper'
 
 describe Account do
   before(:each) do
-    @user = User.create(:email => 'jianlin@domain.com', :password => '111111')
+    @user = User.create
+    @user.create_account
     @account = @user.account
   end
 
@@ -42,6 +45,7 @@ describe Account do
 end
 
 实际运行时，第一个case能成功stub，而第二个case里，方法do_another_thing仍然会执行，stub失败了。
+
 原因在于mongo_mapper对association的处理：
 # lib/mongo_mapper/plugins/associations/proxy.rb
 def method_missing(method, *args, &block)
@@ -50,11 +54,11 @@ def method_missing(method, *args, &block)
   end
 end
 
-@user.account实际上是个代理对象，不是真正的Account对象（虽然@user.account.class返回的也是Account）。
+@user.account实际上是个代理对象，不是真正的Account对象（虽然@user.account.class返回的也是Account，原因后面会说到）。
 proxy_object = class << @account; self; end
-p proxy_object
+p proxy_object # TODO: need result
 target_object = class << @account.target; self; end
-p target_object
+p target_object # TODO: need result
 
 所以
 @account.stub(:do_another_thing)
