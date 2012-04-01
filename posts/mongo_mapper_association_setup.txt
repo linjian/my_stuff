@@ -1,0 +1,107 @@
+# app/models/user.rb
+class User
+  include MongoMapper::Document
+
+  one :account
+
+  many :posts
+end
+
+# app/models/account.rb
+class Account
+  include MongoMapper::Document
+
+  belongs_to :user
+end
+
+# app/models/post.rb
+class Post
+  include MongoMapper::Document
+
+  belongs_to :user
+end
+
+user = User.first
+user.account # => nil
+所以不能用build方法
+user.account.build
+但可以用build_account方法
+user.build_account
+
+但是many association返回的是一个数组
+user.posts   # => []
+可以用build方法
+# TODO: confirm it
+user.posts.build({})
+
+# lib/mongo_mapper/plugins/associations.rb
+def many(association_id, options={}, &extension)
+  create_association(ManyAssociation.new(association_id, options, &extension))
+end
+
+def one(association_id, options={}, &extension)
+  create_association(OneAssociation.new(association_id, options, &extension))
+end
+
+def create_association(association)
+  associations[association.name] = association
+  association.setup(self)
+end
+
+我们先看one的情况。
+
+OneAssociation继承自SingleAssociation
+# lib/mongo_mapper/plugins/associations/single_association.rb
+def setup(model)
+  model.associations_module.module_eval <<-end_eval
+    def #{name}
+      proxy = get_proxy(associations[#{name.inspect}])
+      proxy.nil? ? nil : proxy
+    end
+  end_eval
+
+  # ...
+end
+
+# lib/mongo_mapper/plugins/associations/proxy.rb
+def nil?
+  load_target
+  target.nil?
+end
+所以one的情况，如果target为空，则返回的是nil，而不是一个proxy对象。
+
+再来看many的情况。
+# lib/mongo_mapper/plugins/associations/many_association.rb
+def setup(model)
+  model.associations_module.module_eval <<-end_eval
+    def #{name}
+      get_proxy(associations[#{name.inspect}])
+    end
+  end_eval
+
+  # ...
+end
+返回的是一个proxy对象，所以可以直接调用build方法。
+
+在debug过程中又发现一个有趣的现象。
+先看get_proxy的实现：
+# lib/mongo_mapper/plugins/associations.rb
+def get_proxy(association)
+  unless proxy = self.instance_variable_get(association.ivar)
+    proxy = build_proxy(association)
+  end
+  proxy
+end
+
+def build_proxy(association)
+  proxy = association.proxy_class.new(self, association)
+  self.instance_variable_set(association.ivar, proxy)
+
+  proxy
+end
+
+如果是EmbeddedDocument，则association.ivar已经被设好了，不需要再build_proxy。
+#TODO: need example code
+如果是Document，则需要build_proxy。
+#TODO: need example code
+具体原因就没有深究下去了。
