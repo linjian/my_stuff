@@ -98,7 +98,7 @@ augroup END
 if (g:isGUI)
     if has("gui_gtk2")
         "set guifont=Courier\ New\ 14
-        set guifont=Monospace\ 12
+        set guifont=Monospace\ 11
     elseif has("x11")
         set guifont=-*-courier-medium-r-normal-*-*-180-*-*-m-*-*
     elseif (g:isMac)
