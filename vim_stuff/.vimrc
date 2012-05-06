@@ -316,7 +316,7 @@ map <silent> tl :execute "tabmove ".tabpagenr()<CR>
 set guitablabel=%N:%t\ %M%#HLTabLineSel#
 
 " Open new tab
-map <M-w> :execute "tabnew"<CR>
+map <M-T> :execute "tabnew"<CR>
 " }}}3
 
 " Quick save {{{3
