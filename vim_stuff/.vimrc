@@ -314,6 +314,9 @@ map <silent> tl :execute "tabmove ".tabpagenr()<CR>
 " Describe the text to use in a label of the GUI tab page
 " 1:filename +
 set guitablabel=%N:%t\ %M%#HLTabLineSel#
+
+" Open new tab
+map <M-w> :execute "tabnew"<CR>
 " }}}3
 
 " Quick save {{{3
