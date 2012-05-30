@@ -4,9 +4,9 @@
 
 # Solution 1:
 #   Puts it in ~/.irbrc
-#   then type '__init_vars_for_main(binding).call' after rails console loaded.
+#   then type '__init_vars_by_binding(binding).call' after rails console loaded.
 if defined? ::Rails
-  def __init_vars_for_main(binding)
+  def __init_vars_by_binding(binding)
     Proc.new do
       binding.eval("user    = User.first(:email => 'linjian815@gmail.com')")
       binding.eval("account = user.account")
