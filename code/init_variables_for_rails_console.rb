@@ -1,4 +1,4 @@
-# I wrote two scripts to initialize variables for rails console.
+# Two scripts to initialize variables for rails console.
 # I prefer the second one.
 
 
@@ -8,9 +8,15 @@
 if defined? ::Rails
   def __init_vars_by_binding(binding)
     Proc.new do
-      binding.eval("user    = User.first(:email => 'linjian815@gmail.com')")
-      binding.eval("account = user.account")
+      __quiet_name_error { binding.eval("user    = User.first(:email => 'linjian815@gmail.com')") }
+      __quiet_name_error { binding.eval("account = user.account") }
     end
+  end
+
+  def __quiet_name_error
+    yield
+  rescue NameError => e
+    # Be quiet
   end
 end
 
@@ -20,11 +26,18 @@ end
 if defined? ::Rails
   def __set_vars_for_main(name, value)
     TOPLEVEL_BINDING.eval('self').instance_eval do
+      return if value.nil?
       self.class.send(:attr_accessor, name)
       self.send("#{name}=", value)
     end
   end
 
-  __set_vars_for_main(:user,    User.first(:email => 'linjian815@gmail.com'))
-  __set_vars_for_main(:account, user.account)
+  def __without_name_error
+    yield
+  rescue NameError => e
+    nil
+  end
+
+  __set_vars_for_main(:user,    __without_name_error { User.first(:email => 'linjian815@gmail.com') })
+  __set_vars_for_main(:account, __without_name_error { user.account })
 end
