@@ -25,8 +25,8 @@ end
 #   Just puts it in ~/.irbrc, that's all, no more typing needed.
 if defined? ::Rails
   def __set_vars_for_main(name, value)
+    return if value.nil?
     TOPLEVEL_BINDING.eval('self').instance_eval do
-      return if value.nil?
       self.class_eval { attr_accessor name }
       self.send("#{name}=", value)
     end
