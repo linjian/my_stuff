@@ -27,7 +27,7 @@ if defined? ::Rails
   def __set_vars_for_main(name, value)
     TOPLEVEL_BINDING.eval('self').instance_eval do
       return if value.nil?
-      self.class.send(:attr_accessor, name)
+      self.class_eval { attr_accessor name }
       self.send("#{name}=", value)
     end
   end
