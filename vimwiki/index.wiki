@@ -1,3 +1,4 @@
 = Tips =
   * MultipleSshIssue -- Permission to linjian/my_stuff.git denied to jianlin@xxx.com.
   * GitDiffPatch -- How to apply git diff patch.
+  * MultipleVersionsOfRake -- How to use multiple versions of rake
