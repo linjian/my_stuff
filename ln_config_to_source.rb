@@ -28,6 +28,10 @@ cmd = "ln -s #{SOURCE_DIR}/#{CONFIG_FILES_DIR}/.gitignore ~/.gitignore"
 `#{cmd}`
 puts cmd
 
+cmd = "ln -s #{SOURCE_DIR}/#{CONFIG_FILES_DIR}/.irbrc ~/.irbrc"
+`#{cmd}`
+puts cmd
+
 cmd = "ln -s #{SOURCE_DIR}/vimwiki ~/vimwiki"
 `#{cmd}`
 puts cmd
