@@ -317,6 +317,8 @@ set guitablabel=%N:%t\ %M%#HLTabLineSel#
 
 " Open new tab
 map <M-T> :execute "tabnew"<CR>
+" Open current file in a new tab
+map <silent> tn :execute "tabnew %"<CR>
 " }}}3
 
 " Quick save {{{3
