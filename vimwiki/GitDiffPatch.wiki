@@ -1,9 +1,0 @@
-http://stackoverflow.com/questions/3418277/how-to-apply-git-diff-patch
-
-git diff --no-prefix > patchfile
-patch -p0 < patchfile
-
-or
-
-git diff > patchfile
-patch -p1 < patchfile
