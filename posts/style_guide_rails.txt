@@ -1,1 +1,0 @@
-https://github.com/bbatsov/rails-style-guide

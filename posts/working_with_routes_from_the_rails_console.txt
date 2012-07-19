@@ -1,8 +1,0 @@
-https://wincent.com/wiki/Working_with_routes_from_the_Rails_console
-
-Rails 3
-include Rails.application.routes.url_helpers
-
-Rails 2
-include ActionController::UrlWriter
-default_url_options[:host] = 'whatever'
