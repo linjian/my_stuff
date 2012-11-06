@@ -1,4 +1,4 @@
-SOURCE_DIR = '~/mystuff'
+SOURCE_DIR = '~/my_stuff'
 
 VIM_STUFF_DIR = 'vim_stuff'
 CONFIG_FILES_DIR = 'config_files'

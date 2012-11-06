@@ -43,4 +43,4 @@ export PS1="\[\033[01;34m\]\$(~/.rvm/bin/rvm-prompt) \[\033[01;32m\]\w\[\033[00;
 export PATH=/usr/local/mysql/bin:$PATH
 
 # Fix issue for mysql 5.5 on Mac OS X 10.6
-export DYLD_LIBRARY_PATH="/usr/local/mysql/lib:$DYLD_LIBRARY_PATH"
+# export DYLD_LIBRARY_PATH="/usr/local/mysql/lib:$DYLD_LIBRARY_PATH"

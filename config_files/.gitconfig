@@ -1,3 +1,6 @@
+[user]
+	name = Jian Lin
+	email = linjian815@gmail.com
 [merge]
 	tool = gvimdiff
 	; tool = mvimdiff
