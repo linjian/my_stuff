@@ -14,8 +14,8 @@ if defined? ::Rails
     nil
   end
 
-  __set_vars_for_main(:user,    __without_name_error { User.first(:email => 'jianlin@yottaa.com') })
-  __set_vars_for_main(:account, __without_name_error { user.account })
+  # __set_vars_for_main(:user,    __without_name_error { User.first(:email => 'jianlin@yottaa.com') })
+  # __set_vars_for_main(:account, __without_name_error { user.account })
   # Set variables ########################################################
 
 
