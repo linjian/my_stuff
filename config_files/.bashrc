@@ -19,6 +19,12 @@ alias cucumber-with-gc='DEFER_GC=10 cucumber'
 alias nginxStart='sudo /opt/nginx/sbin/nginx'
 alias nginxStop='sudo /opt/nginx/sbin/nginx -s stop'
 alias nginxReload='sudo /opt/nginx/sbin/nginx -s reload'
+# aliases of zeus
+alias zc='zeus c'
+alias zs='zeus s'
+alias zg='zeus g'
+alias zrake='zeus rake'
+alias zrspec='zeus rspec'
 
 # The Vim version Mac OS X 10.6 pre-installed does NOT support Ruby
 # Use MacVim in terminal instead
