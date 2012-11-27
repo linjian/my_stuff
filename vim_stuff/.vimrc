@@ -385,8 +385,8 @@ map <silent> <M-t>4 :set tabstop=4<CR>
 vmap <Tab> :retab<CR>
 
 " To command mode directly
-noremap ; <S-:>
-vmap ; ;
+" noremap ; <S-:>
+" vmap ; ;
 " }}}2
 
 " Other mapping {{{2
