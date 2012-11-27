@@ -383,6 +383,9 @@ map <silent> <M-t>4 :set tabstop=4<CR>
 
 " Expand existing tabs in visual mode
 vmap <Tab> :retab<CR>
+
+" To command mode directly
+noremap ; <S-:>
 " }}}2
 
 " Other mapping {{{2
