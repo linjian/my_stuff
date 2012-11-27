@@ -386,6 +386,7 @@ vmap <Tab> :retab<CR>
 
 " To command mode directly
 noremap ; <S-:>
+vmap ; ;
 " }}}2
 
 " Other mapping {{{2
