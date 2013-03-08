@@ -3,7 +3,6 @@
 *.swp
 .netrwhist
 */.vim/sessions/
-Gemfile.lock
 log/
 spec/support/deferred_garbage_collection_all_in_one.rb
 features/step_definitions/deferred_garbage_collection_all_in_one.rb
