@@ -1,0 +1,10 @@
+Currently, the change method supports only these migration definitions:
+
+add_column
+add_index
+add_timestamps
+create_table
+remove_timestamps
+rename_column
+rename_index
+rename_table
