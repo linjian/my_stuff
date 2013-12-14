@@ -50,3 +50,5 @@ export PATH=/usr/local/mysql/bin:$PATH
 
 # Fix issue for mysql 5.5 on Mac OS X 10.6
 export DYLD_LIBRARY_PATH="/usr/local/mysql/lib:$DYLD_LIBRARY_PATH"
+
+export PATH=/usr/local/lib/node_modules/karma/bin:$PATH
