@@ -25,6 +25,7 @@ alias nginxReload='sudo /opt/nginx/sbin/nginx -s reload'
 alias zc='zeus c'
 alias zs='zeus s'
 alias zg='zeus g'
+alias zd='zeus d'
 alias zrake='zeus rake'
 alias zrspec='zeus rspec'
 
