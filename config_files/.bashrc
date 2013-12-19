@@ -12,6 +12,7 @@ alias sc='ruby script/console'
 alias scproduction='ruby script/console production'
 alias mmconsole='~/.gem/ruby/1.8/gems/mongo_mapper-0.8.6/bin/mmconsole'
 alias mvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
+alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
 alias binstubs='bundle install --binstubs=./bundler_stubs'
 # Using sudo with an alias
 alias sudo='sudo '
