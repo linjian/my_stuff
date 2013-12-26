@@ -10,3 +10,4 @@ public/framework
 config/initializers/*puts_to_log.rb
 zeus.json
 bundler_stubs/
+Gruntfile.js.backup.*
