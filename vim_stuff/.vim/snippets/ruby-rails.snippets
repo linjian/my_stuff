@@ -1,0 +1,28 @@
+snippet ac
+	attr_accessible :${1:attr_names}
+snippet has
+	has_many :${1:models}, ${2:dependent: :destroy}
+snippet hasb
+	has_and_belongs_to_many :${1:models}, ${2:dependent: :destroy}
+snippet hast
+	has_many :${1:models}, through: :${2:anothers}
+snippet dep
+	dependent: :${1:destroy}${2}
+snippet scope
+	scope :${1:scope_name}, -> { ${2:where()} }
+snippet scopea
+	scope :${1:scope_name}, ->(${2:args}) { ${3:where()} }
+snippet vp
+	validates :${1:attr}, presence: true${2}
+snippet pre
+	presence: true${1}
+snippet arb
+	ActiveRecord::Base
+snippet classm
+	class ${1:`substitute(Filename(), '^.', '\u&', '')`} < ActiveRecord::Base
+		${2}
+	end
+snippet respond
+	respond_to do |format|
+		format.${1:html} { ${2} }
+	end

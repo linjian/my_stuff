@@ -1,0 +1,28 @@
+snippet spech
+	require 'spec_helper'
+snippet desc
+	describe ${1:ClassName} do
+		${2}
+	end
+snippet context
+	context "${1}" do
+		${2}
+	end
+snippet let
+	let(:${1:variable}) { ${2} }
+snippet let!
+	let!(:${1:variable}) { ${2} }
+snippet subj
+	subject { ${1} }
+snippet it
+	it "${1:should}" do
+		${2}
+	end
+snippet expect
+	expect(${1:val}).to${2} ${3:eq} ${4}
+snippet expectc
+	expect { ${1:expression} }.to${2} change(${3:Model}, :count)${4}
+snippet expectr
+	expect { ${1:expression} }.to raise_error(${2:Error})${3}
+snippet expectit
+	it { expect(subject${1}).to${2} ${3:eq} ${4} }

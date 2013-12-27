@@ -1,0 +1,11 @@
+snippet classmo
+	class ${1:`substitute(Filename(), '^.', '\u&', '')`}
+		include Mongoid::Document
+		include Mongoid::Timestamps
+
+		field :${2:name}
+	end
+snippet mid
+	include Mongoid::Document
+snippet mit
+	include Mongoid::Timestamps
