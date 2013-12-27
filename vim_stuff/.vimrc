@@ -225,6 +225,18 @@ nmap <M-r>rs :RS<CR>
 nmap <M-r>rv :RV<CR>
 " }}}3
 
+" Set for rspec.vim {{{3
+if (g:isMac && g:isGUI)
+    let g:rspec_command = "silent !~/.vim/bin/run_in_iterm 'zeus rspec {spec}'"
+else
+    let g:rspec_command = "!echo zeus rspec {spec} && zeus rspec {spec}"
+endif
+
+map <leader>d :call RunNearestSpec()<CR>
+map <leader>l :call RunLastSpec()<CR>
+map <leader>t :call RunCurrentSpecFile()<CR>
+" }}}3
+
 " Mapping for ack.vim
 nmap <M-a> :execute "tabnew \| Ack ".expand("<cword>")<CR>
 vmap <M-a> "ay:execute "tabnew \| Ack <C-R>a"<CR>
