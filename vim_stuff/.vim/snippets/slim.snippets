@@ -7,10 +7,8 @@ snippet ff
 snippet sff
 	= simple_form_for @${1:object}, html: { class: 'form-horizontal' } do |f|
 		= f.input :${2:field}
-snippet link
-	= link_to 
 snippet linkb
 	= link_to ${1:name}, ${2:path}, class: 'btn ${3:btn-primary}'
 snippet each
 	each do |${1:e}|
-		${2}
+		= ${2}

@@ -15,7 +15,7 @@ snippet rb
 snippet req
 	require "${1}"${2}
 snippet #
-	# =>
+	# => 
 snippet end
 	__END__
 snippet case
@@ -164,7 +164,7 @@ snippet upt
 snippet loo
 	loop { ${1} }
 snippet each
-	each { |${1:e}| ${2:$1} }
+	each { |${1:e}| $1${2} }
 snippet eab
 	each_byte { |${1:byte}| ${2} }
 snippet eac- each_char { |chr| .. }
@@ -190,7 +190,7 @@ snippet reve
 snippet inj
 	inject(${1:init}) { |${2:memo}, ${3:e}| ${4} }
 snippet map
-	map { |${1:e}| ${2:$1} }
+	map { |${1:e}| $1${2} }
 snippet mapwi-
 	enum_with_index.map { |${1:e}, ${2:i}| ${3} }
 snippet sor
@@ -235,7 +235,7 @@ snippet lam
 	lambda { |${1:args}| ${2} }
 snippet do
 	do |${1:variable}|
-		${2:$1}
+		$1${2}
 	end
 snippet :
 	:${1:key} => ${2:"value"}${3}
