@@ -15,6 +15,7 @@
 	revert-all = checkout HEAD -- ; copies files from the latest commit to both the stage and the working directory
 	branch-new-and-switch = checkout -b
 	branch-delete = branch -d
+	branch-refresh = remote prune origin ; remove the remote branches which have been deleted
 	br = branch
 	ci = commit
 	st = status
