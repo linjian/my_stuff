@@ -275,6 +275,16 @@ let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"', "'": "'", '<': '
 
 " Map for NERD_tree.vim
 nmap <silent> <F12> :NERDTreeToggle<CR>
+
+" Set for godef.vim
+" Open the definition in a new tab.
+let g:godef_split=2
+
+" Jumps to the same file to move cursor instead of splitting
+let g:godef_same_file_in_same_window=1
+
+" The original 'gd' mapping is hard to press, 'gf' is easier and compatible with rails.vim
+autocmd FileType go nnoremap <buffer> gf :call GodefUnderCursor()<cr>
 " }}}2
 
 " Custom mapping {{{2
