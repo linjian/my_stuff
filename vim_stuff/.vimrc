@@ -61,6 +61,20 @@ else
 endif " has("autocmd")
 " }}}1
 
+" To use vim plugins for Go {{{1
+filetype off
+filetype plugin indent off
+set runtimepath+=$GOROOT/misc/vim
+filetype plugin indent on
+syntax on
+
+" To gofmt Go source files when they are saved.
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
+
+" To always enable the compiler plugin in Go source files
+autocmd FileType go compiler go
+" }}}1
+
 " My Setting {{{1
 "=============================================================================
 " Assign global variables by env {{{2
