@@ -241,9 +241,12 @@ nmap <M-r>rv :RV<CR>
 
 " Set for rspec.vim {{{3
 if (g:isMac && g:isGUI)
-    let g:rspec_command = "silent !~/.vim/bin/run_in_iterm 'zeus rspec {spec}'"
+    " run with zeus
+    " let g:rspec_command = "silent !~/.vim/bin/run_in_iterm 'zeus rspec {spec}'"
+    let g:rspec_command = "silent !~/.vim/bin/run_in_iterm 'rspec {spec}'"
 else
-    let g:rspec_command = "!echo zeus rspec {spec} && zeus rspec {spec}"
+    " let g:rspec_command = "!echo zeus rspec {spec} && zeus rspec {spec}"
+    let g:rspec_command = "!echo rspec {spec} && rspec {spec}"
 endif
 
 map <leader>d :call RunNearestSpec()<CR>
@@ -472,6 +475,7 @@ endif
 
 " Always display the status line
 set laststatus=2
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " Set encoding for chinese
 set fileencodings=utf-8,gb2312,gbk,gb18030
@@ -489,8 +493,12 @@ set modeline
 " Unfold by default
 set foldlevel=99
 
-" Define command for VCSVimDiff
-command! Vd VCSVimDiff
+" Use another color scheme while diff
+if &diff
+    colorscheme peaksea
+endif
+au FilterWritePre * if &diff | colorscheme peaksea | endif
+au BufWinLeave * if &diff | colorscheme vividchalk | endif
 " }}}2
 " }}}1
 
