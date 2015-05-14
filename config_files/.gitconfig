@@ -1,9 +1,6 @@
 [user]
 	name = Jian Lin
 	email = linjian815@gmail.com
-[merge]
-	tool = gvimdiff
-	; tool = mvimdiff
 [color]
 	diff = auto
 	status = auto
@@ -25,6 +22,7 @@
 	push-master = push origin master
 	diffall = diff HEAD ; diff local(include staged files) with last commit
 	diffstage = diff --cached ; diff stage with last commit
+	difftoolstage = difftool --cached
 	cleantest = clean -nd
 	cleanreally = clean -fd
 [core]
@@ -33,3 +31,9 @@
 ; The reason is that I installed MacVim, and added vim alias to use MacVim in terminal.
 ; But the exit code of MacVim is non-zero, so here we use pre-installed vim instead.
 	editor = /usr/bin/vim
+[diff]
+	tool = diffmerge
+[difftool "diffmerge"]
+	cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = No
