@@ -99,3 +99,7 @@ source ~/.bash_profile
 if [ $0 = -/bin/zsh ]; then
     echo zsh
 fi
+
+# 防止乱码
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
