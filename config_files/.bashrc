@@ -1,3 +1,14 @@
+# 方便切换到zsh
+alias chzsh='chsh -s $(which zsh)'
+# 方便切换到bash
+alias chbash='chsh -s $(which bash)'
+# 方便查看当前shell
+alias shell='echo $0'
+# 显示当前shell
+if [ $0 = -/bin/bash ]; then
+    echo bash
+fi
+
 # some aliases
 alias ll='ls -lFh'
 alias la='ls -A'
@@ -14,6 +25,7 @@ alias mmconsole='~/.gem/ruby/1.8/gems/mongo_mapper-0.8.6/bin/mmconsole'
 alias mvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
 alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
 alias binstubs='bundle install --binstubs=./bundler_stubs'
+alias migrate_test='rake db:migrate RAILS_ENV=test'
 # Using sudo with an alias
 alias sudo='sudo '
 alias rspec-with-gc='DEFER_GC=10 rspec'
@@ -40,13 +52,17 @@ fi
 [[ -s "~/.rvm/scripts/rvm" ]] && source "~/.rvm/scripts/rvm"
 
 # git command auto completion
-source ~/.git-completion.bash
+if [ $0 = -/bin/bash ]; then
+    source ~/.git-completion.bash
+fi
 
 # Turn off the terminal driver flow control to disable Ctrl-s and Ctrl-q in terminal for vim
 stty -ixon -ixoff
 
 # Command Line Feedback from RVM and Git
-export PS1="\[\033[01;34m\]\$(~/.rvm/bin/rvm-prompt) \[\033[01;32m\]\w\[\033[00;33m\]\$(__git_ps1 \" (%s)\") \[\033[01;36m\]\$\[\033[00m\] "
+if [ $0 = -/bin/bash ]; then
+    export PS1="\[\033[01;34m\]\$(~/.rvm/bin/rvm-prompt) \[\033[01;32m\]\w\[\033[00;33m\]\$(__git_ps1 \" (%s)\") \[\033[01;36m\]\$\[\033[00m\] "
+fi
 
 # Add path for mysql on Mac
 export PATH=/usr/local/mysql/bin:$PATH
@@ -55,3 +71,6 @@ export PATH=/usr/local/mysql/bin:$PATH
 export DYLD_LIBRARY_PATH="/usr/local/mysql/lib:$DYLD_LIBRARY_PATH"
 
 export PATH=/usr/local/lib/node_modules/karma/bin:$PATH
+
+export PATH=$PATH:$(go env GOPATH)/bin
+
