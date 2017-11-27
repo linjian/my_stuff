@@ -44,6 +44,14 @@ snippet ife
 	else
 		${3}
 	end
+snippet ifee
+	if ${1:condition}
+		${2}
+	elsif ${3:condition}
+		${4}
+	else
+		${5}
+	end
 snippet elsif
 	elsif ${1:condition}
 		${2}
@@ -59,8 +67,8 @@ snippet until
 	until ${1:condition}
 		${2}
 	end
-snippet class
-	class ${1:`substitute(Filename(), '^.', '\u&', '')`}
+snippet cla
+	class ${1:`substitute(Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')`}
 		${2}
 	end
 snippet classi
@@ -70,7 +78,7 @@ snippet classi
 		end
 	end
 snippet mod
-	module ${1:`substitute(Filename(), '^.', '\u&', '')`}
+	module ${1:`substitute(Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')`}
 		${2}
 	end
 # attr_reader
@@ -103,6 +111,13 @@ snippet Forw-
 snippet defs
 	def self.${1:class_method_name}
 		${2}
+	end
+# def class << self
+snippet cself
+	class << self
+		def ${1:method_name}
+			${2}
+		end
 	end
 # def method_missing
 snippet defmm
@@ -164,7 +179,7 @@ snippet upt
 snippet loo
 	loop { ${1} }
 snippet each
-	each { |${1:e}| $1${2} }
+	each { |${1:e}| ${2} }
 snippet eab
 	each_byte { |${1:byte}| ${2} }
 snippet eac- each_char { |chr| .. }
@@ -190,7 +205,7 @@ snippet reve
 snippet inj
 	inject(${1:init}) { |${2:memo}, ${3:e}| ${4} }
 snippet map
-	map { |${1:e}| $1${2} }
+	map { |${1:e}| ${2} }
 snippet mapwi-
 	enum_with_index.map { |${1:e}, ${2:i}| ${3} }
 snippet sor
@@ -233,9 +248,13 @@ snippet sel
 	select { |${1:e}|, ${2} }
 snippet lam
 	lambda { |${1:args}| ${2} }
+snippet il
+	->(${1:args}) { ${2} }
+snippet ib
+	{ |${1:args}| ${2} }
 snippet do
 	do |${1:variable}|
-		$1${2}
+		${2}
 	end
 snippet :
 	:${1:key} => ${2:"value"}${3}
@@ -361,3 +380,17 @@ snippet tas
 	task :${2:task_name => [:dependent, :tasks]} do
 		${3}
 	end
+snippet init
+	def initialize(${1:args})
+		${2}
+	end
+snippet strf
+	strftime('${1:%Y}-%m-%d %H:%M:%S')
+snippet mapp
+	map(&:${1:method})
+snippet rt
+	respond_to?
+snippet ivg
+	instance_variable_get(:"@#{${1:attr_name}}")
+snippet ivs
+	instance_variable_set(:"@#{${1:attr_name}}", ${2:value})

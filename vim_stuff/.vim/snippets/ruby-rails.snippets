@@ -1,28 +1,206 @@
 snippet ac
 	attr_accessible :${1:attr_names}
-snippet has
-	has_many :${1:models}, ${2:dependent: :destroy}
-snippet hasb
-	has_and_belongs_to_many :${1:models}, ${2:dependent: :destroy}
-snippet hast
-	has_many :${1:models}, through: :${2:anothers}
 snippet dep
 	dependent: :${1:destroy}${2}
-snippet scope
-	scope :${1:scope_name}, -> { ${2:where()} }
-snippet scopea
-	scope :${1:scope_name}, ->(${2:args}) { ${3:where()} }
-snippet vp
-	validates :${1:attr}, presence: true${2}
-snippet pre
-	presence: true${1}
 snippet arb
-	ActiveRecord::Base
+	ActiveRecord${1:::Base}
+snippet ar
+	ApplicationRecord
 snippet classm
-	class ${1:`substitute(Filename(), '^.', '\u&', '')`} < ActiveRecord::Base
+	class ${1:`substitute(Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')`} < ApplicationRecord
 		${2}
 	end
-snippet respond
+snippet conc
+	module Concerns
+		module ${1:`substitute(Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')`}
+			extend ActiveSupport::Concern
+
+			${2}
+		end
+	end
+snippet crt
 	respond_to do |format|
 		format.${1:html} { ${2} }
 	end
+snippet ana
+	accepts_nested_attributes_for :${1:association}
+snippet ba
+	before_action :${1:method}, only: [:${2:action}]
+snippet aa
+	after_action :${1:method}, only: [:${2:action}]
+snippet sba
+	skip_before_action :${1:method}
+snippet saa
+	skip_after_action :${1:method}
+snippet pa
+	params[:${1}]
+snippet prp
+	params.require(:${1:record_name}).permit(:${2:attr})
+snippet pp
+	params.permit(:${1:attr})
+snippet findid
+	find(params[:${1:id}])
+snippet page
+	page(params[:page])
+snippet fn
+	flash[:notice] = '${1}'
+snippet fa
+	flash[:alert] = '${1}'
+snippet bt
+	belongs_to :${1:association}, required: ${2:true}
+snippet btp
+	belongs_to :${1:association}, required: ${2:true}, polymorphic: true
+snippet hm
+	has_many :${1:models}${2:, dependent: :destroy}
+snippet hmt
+	has_many :${1:models}, through: :${2:anothers}
+snippet hb
+	has_and_belongs_to_many :${1:models}${2:, dependent: :destroy}
+snippet t
+	I18n.t('${1}')
+snippet te
+	I18n.t('errors.messages.${1}')
+snippet st
+	Settings.${1}
+snippet log
+	logger.${1:info} "${2}"
+snippet rlog
+	Rails.logger.${1:info} "${2}"
+snippet ed
+	Rails.env.development?
+snippet et
+	Rails.env.test?
+snippet es
+	Rails.env.staging?
+snippet ep
+	Rails.env.production?
+snippet rs
+	resources :${1:resources}, only: [:${2:action}]
+###############################
+#   model callback snippets   #
+###############################
+# before callback
+snippet mbv
+	before_validation :${1:method}
+snippet mbc
+	before_create :${1:method}
+snippet mbu
+	before_update :${1:method}
+snippet mbs
+	before_save :${1:method}
+snippet mbd
+	before_destroy :${1:method}
+# after callback
+snippet mav
+	after_validation :${1:method}
+snippet mac
+	after_create :${1:method}
+snippet mau
+	after_update :${1:method}
+snippet mas
+	after_save :${1:method}
+snippet mad
+	after_destroy :${1:method}
+snippet sc
+	scope :${1:name}, -> { where(${2}) }
+snippet scopea
+	scope :${1:name}, ->(${2:args}) { where(${3}) }
+snippet vc
+	validates :${1:attribute}, confirmation: true${2}
+snippet ve
+	validates :${1:attribute}, exclusion: { in: %w[${2}] }
+snippet vf
+	validates :${1:attribute}, format: { with: /${2:regex}/ }
+snippet vi
+	validates :${1:attribute}, inclusion: { in: %w[${2}] }
+snippet vl
+	validates :${1:attribute}, length: { in: ${2:n}..${3:n} }
+snippet vn
+	validates :${1:attribute}, numericality: true${2}
+snippet vp
+	validates :${1:attribute}, presence: true${2}
+snippet vu
+	validates :${1:attribute}, uniqueness: true${2}
+snippet vco
+	validates_confirmation_of :${1:attribute}
+snippet veo
+	validates_exclusion_of :${1:attribute}, in: %w[${2}]
+snippet vfo
+	validates_format_of :${1:attribute}, with: /${2:regex}/
+snippet vio
+	validates_inclusion_of :${1:attribute}, in: %w[${2}]
+snippet vlo
+	validates_length_of :${1:attribute}, in: ${2:n}..${3:n}
+snippet vno
+	validates_numericality_of :${1:attribute}
+snippet vpo
+	validates_presence_of :${1:attribute}
+snippet vuo
+	validates_uniqueness_of :${1:attribute}
+snippet oi
+	only_integer: true${1}
+snippet pre
+	presence: true${1}
+snippet aln
+	allow_nil: true${1}
+snippet alb
+	allow_blank: true${1}
+snippet psi
+	persisted?
+snippet attr
+	attributes
+snippet bod
+	beginning_of_day
+snippet bow
+	beginning_of_week
+snippet bom
+	beginning_of_month
+snippet boy
+	beginning_of_year
+snippet eod
+	end_of_day
+snippet eow
+	end_of_week
+snippet eom
+	end_of_month
+snippet eoy
+	end_of_year
+snippet ex
+	exists?
+snippet mdn
+	deliver_now
+snippet mdl
+	deliver_later
+snippet md
+	deliver
+snippet aw
+	Array.wrap(${1})
+snippet try
+	try(:${1:method})
+snippet des
+	destroy
+snippet red
+	redirect_to ${1:path}
+snippet cu
+	current_user
+snippet ea
+	errors.add(:${1:attr}, :${2:reason})
+snippet tr
+	transaction do
+		${1}
+	end
+	true
+	rescue ActiveRecord::RecordInvalid
+	${2:return false}
+snippet first
+	where(${1:conditions}).first
+snippet da
+	destroy_all
+snippet ua
+	update_all
+snippet cmdo
+	class_methods do
+		${1}
+	end
+snippet nr
+	new_record?

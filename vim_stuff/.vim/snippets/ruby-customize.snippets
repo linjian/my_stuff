@@ -1,6 +1,47 @@
 snippet h
 	=> 
-snippet {}
-	{ |${1:args}| $1${2} }
 snippet a
 	%w[${1}]
+snippet ore
+	||= ${1}
+snippet or
+	|| ${1}
+snippet and
+	&& ${1}
+snippet ne
+	!= 
+snippet ,
+	< ${1}
+snippet ,,
+	<< ${1}
+snippet adds
+	' + '${1}' + '
+snippet addss
+	" + "${1}" + "
+snippet sv
+	#{${1}}
+snippet ?
+	? ${1:value} : ${2:value}
+snippet swa
+	swagger_named_path :${1:path} do
+		operation :${2:method} do
+			key :tags, [
+				'${3:tag}'
+			]
+			key :summary, '${4:summary}'
+			key 'x-position', ${5:position}
+			# simple_parameter :xx, :string, required: true, description: ''
+			response 200
+			response 422 do
+				schema do
+					key :'$ref', :InvalidRecord
+				end
+			end
+		end
+	end
+snippet au
+	authorize @${1:object}
+snippet poc
+	class ${1:`substitute(Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')`} < ApplicationPolicy
+		${2}
+	end
