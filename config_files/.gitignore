@@ -9,6 +9,8 @@ features/step_definitions/deferred_garbage_collection_all_in_one.rb
 public/framework
 config/initializers/*puts_to_log.rb
 zeus.json
+todo.txt
+custom_plan.rb
 bundler_stubs/
 Gruntfile.js.backup.*
 .powder

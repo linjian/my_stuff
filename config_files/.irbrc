@@ -1,4 +1,13 @@
 if defined? ::Rails
+  console_log_file = Rails.root.join('log/console.log').to_s
+
+  Rails.logger.level = 0
+  if Rails.logger.respond_to?(:reopen)
+    Rails.logger.reopen(console_log_file)
+  else
+    Rails.logger.instance_variable_set("@logdev", Logger::LogDevice.new(console_log_file))
+  end
+
   # Set variables ########################################################
   def __set_vars_for_main(name, value)
     return if value.nil?

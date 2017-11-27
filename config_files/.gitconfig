@@ -1,5 +1,5 @@
 [user]
-	name = Jian Lin
+	name = Lin Jian
 	email = linjian815@gmail.com
 [color]
 	diff = auto
@@ -26,7 +26,7 @@
 	cleantest = clean -nd
 	cleanreally = clean -fd
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = /Users/linjian/.gitignore
 ; Fix the "error: There was a problem with the editor 'vi'." while commit.
 ; The reason is that I installed MacVim, and added vim alias to use MacVim in terminal.
 ; But the exit code of MacVim is non-zero, so here we use pre-installed vim instead.
@@ -37,3 +37,15 @@
 	cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
 [difftool]
 	prompt = No
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/linjian/.stCommitMsg
