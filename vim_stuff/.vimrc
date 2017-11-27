@@ -62,17 +62,17 @@ endif " has("autocmd")
 " }}}1
 
 " To use vim plugins for Go {{{1
-filetype off
-filetype plugin indent off
-set runtimepath+=$GOROOT/misc/vim
-filetype plugin indent on
-syntax on
+" filetype off
+" filetype plugin indent off
+" set runtimepath+=$GOROOT/misc/vim
+" filetype plugin indent on
+" syntax on
 
 " To gofmt Go source files when they are saved.
-autocmd FileType go autocmd BufWritePre <buffer> Fmt
+" autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
 " To always enable the compiler plugin in Go source files
-autocmd FileType go compiler go
+" autocmd FileType go compiler go
 " }}}1
 
 " My Setting {{{1
@@ -117,7 +117,7 @@ if (g:isGUI)
         set guifont=-*-courier-medium-r-normal-*-*-180-*-*-m-*-*
     elseif (g:isMac)
         " set guifont=Monaco:h15
-        set guifont=Menlo:h15
+        set guifont=Menlo:h14
     else
         " set guifont=Courier_New:h11:cDEFAULT
         set guifont=Courier_New:h16
@@ -347,8 +347,10 @@ map <C-Tab> gt
 map <C-S-Tab> gT
 
 " Move tab page to next/previous
-map <silent> th :execute "tabmove ".(tabpagenr()-2)<CR>
-map <silent> tl :execute "tabmove ".tabpagenr()<CR>
+map <silent> th :execute "tabmove -1"<CR>
+map <silent> tl :execute "tabmove +1"<CR>
+" map <silent> th :execute "tabmove ".(tabpagenr()-2)<CR>
+" map <silent> tl :execute "tabmove ".tabpagenr()<CR>
 
 " Describe the text to use in a label of the GUI tab page
 " 1:filename +
