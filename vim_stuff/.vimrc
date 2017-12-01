@@ -447,6 +447,8 @@ nmap <silent> <M-M> :call ErubyCommentToggle()<CR>
 " }}}2
 
 " Other setting {{{2
+" using ruby interface
+set rubydll=~/.rvm/rubies/default/lib/libruby.dylib
 " Display the extra tab and whitespace
 set list
 set listchars=tab:>-,trail:-
