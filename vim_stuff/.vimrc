@@ -288,6 +288,11 @@ let g:godef_same_file_in_same_window=1
 
 " The original 'gd' mapping is hard to press, 'gf' is easier and compatible with rails.vim
 autocmd FileType go nnoremap <buffer> gf :call GodefUnderCursor()<cr>
+
+" Set for leaderf.vim
+let g:Lf_DefaultMode = 'FullPath'
+" Use Esc to quit from LeaderF
+let g:Lf_CommandMap = {'<C-C>': ['<Esc>']}
 " }}}2
 
 " Custom mapping {{{2
@@ -415,8 +420,9 @@ nnoremap <Down> gj
 nnoremap <Up> gk
 
 " For setting foldmethod
-map <silent> <Leader>f :set foldmethod=syntax<CR>
-map <silent> <Leader>F :set foldmethod=manual<CR>
+" 跟LeaderF冲突了，又不常用，所以先注释掉
+" map <silent> <Leader>f :set foldmethod=syntax<CR>
+" map <silent> <Leader>F :set foldmethod=manual<CR>
 
 " switch number(2/4) of spaces that a <Tab> counts for
 map <silent> <M-t>2 :set tabstop=2<CR>

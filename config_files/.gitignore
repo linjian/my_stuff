@@ -16,3 +16,4 @@ Gruntfile.js.backup.*
 .powder
 src/code.google.com/
 .envrc
+*.pyc
