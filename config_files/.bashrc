@@ -39,6 +39,9 @@ alias zs='zeus s'
 alias zg='zeus g'
 alias zr='zeus rake'
 alias zt='zeus rspec'
+# alias of Solidity REPL
+alias sos='ganache-cli'
+alias soc='solr'
 
 # The Vim version Mac OS X 10.6 pre-installed does NOT support Ruby
 # Use MacVim in terminal instead
