@@ -7,6 +7,9 @@ set nocompatible
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
+" display line number
+set number
+
 " keep a backup file
 set backup
 
@@ -42,7 +45,7 @@ if has("autocmd")
         au!
 
         " For all text files set 'textwidth' to 78 characters.
-        autocmd FileType text setlocal textwidth=78
+        " autocmd FileType text setlocal textwidth=78
 
         " When editing a file, always jump to the last known cursor position.
         " Don't do it when the position is invalid or when inside an event handler
@@ -252,6 +255,11 @@ endif
 map <leader>d :call RunNearestSpec()<CR>
 map <leader>l :call RunLastSpec()<CR>
 map <leader>t :call RunCurrentSpecFile()<CR>
+" 复制测试命令到剪贴板
+" file
+map tf :let @+="zeus rspec " . @%<CR>
+" current line
+map tc :let @+="zeus rspec " . @% . ":" . line(".")<CR>
 " }}}3
 
 " Mapping for ack.vim
@@ -278,6 +286,7 @@ let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"', "'": "'", '<': '
 
 " Map for NERD_tree.vim
 nmap <silent> <F12> :NERDTreeToggle<CR>
+nmap <silent> <M-0> :NERDTreeToggle<CR>
 
 " Set for godef.vim
 " Open the definition in a new tab.
@@ -342,10 +351,10 @@ imap <M-d> <Esc>ddi
 
 " Tab page setting {{{3
 " Switch tab page by number
-for i in range(1,9)
+for i in range(1,8)
     execute "map <M-".i."> ".i."gt"
 endfor
-map <M-0> :tablast<CR>
+map <M-9> :tablast<CR>
 
 " Go to next/previous tab page
 map <C-Tab> gt

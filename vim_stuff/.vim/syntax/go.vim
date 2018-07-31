@@ -441,4 +441,6 @@ syn sync minlines=500
 
 let b:current_syntax = "go"
 
+colorscheme vividchalk
+
 " vim: sw=2 ts=2 et
