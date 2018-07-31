@@ -37,9 +37,8 @@ alias nginxReload='sudo /opt/nginx/sbin/nginx -s reload'
 alias zc='zeus c'
 alias zs='zeus s'
 alias zg='zeus g'
-alias zd='zeus d'
-alias zrake='zeus rake'
-alias zrspec='zeus rspec'
+alias zr='zeus rake'
+alias zt='zeus rspec'
 
 # The Vim version Mac OS X 10.6 pre-installed does NOT support Ruby
 # Use MacVim in terminal instead
@@ -72,5 +71,9 @@ export DYLD_LIBRARY_PATH="/usr/local/mysql/lib:$DYLD_LIBRARY_PATH"
 
 export PATH=/usr/local/lib/node_modules/karma/bin:$PATH
 
+export PATH=/Applications/Postgres.app/Contents/Versions/9.6/bin:$PATH
+
 export PATH=$PATH:$(go env GOPATH)/bin
 
+# Fix "read unix ->: EOF" error for zeus
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
