@@ -348,4 +348,6 @@ syn sync maxlines=500
 
 let b:current_syntax = "rust"
 
+colorscheme vividchalk
+
 " vim: set et sw=4 sts=4 ts=8:

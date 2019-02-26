@@ -302,6 +302,9 @@ autocmd FileType go nnoremap <buffer> gf :call GodefUnderCursor()<cr>
 let g:Lf_DefaultMode = 'FullPath'
 " Use Esc to quit from LeaderF
 let g:Lf_CommandMap = {'<C-C>': ['<Esc>']}
+
+" Set for rust.vim
+let g:rustfmt_autosave = 1
 " }}}2
 
 " Custom mapping {{{2
