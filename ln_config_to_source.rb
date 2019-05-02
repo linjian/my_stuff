@@ -48,3 +48,7 @@ puts cmd
 
 # ln -s ~/mystuff/code/deferred_garbage_collection_all_in_one.rb /Users/apple/workspace/repository/dpu/spec/support/deferred_garbage_collection_all_in_one.rb
 # ln -s ~/mystuff/code/deferred_garbage_collection_all_in_one.rb /Users/apple/workspace/repository/dpu/features/step_definitions/deferred_garbage_collection_all_in_one.rb
+
+
+puts "\e[31m把#{SOURCE_DIR}/config_files/prepare-commit-msg copy 到项目的 .git/hooks/ 目录下\e[0m"
+puts "  \e[1;32mcp #{SOURCE_DIR}/config_files/prepare-commit-msg <project>/.git/hooks/\e[0m"

@@ -1,0 +1,76 @@
+#!/usr/bin/env ruby
+
+# TODO: 放到my_stuff里
+
+# https://gist.github.com/mwise/69ec35b646b52d98050d
+
+# Put this file in your local repo, in the .git/hooks folder
+# and make sure it is executable: chmod +x prepare-commit-msg
+# The name of the file *must* be "prepare-commit-msg" for Git to pick it up.
+
+FORBIDDEN_RULES = {
+  # "sandbox" => "master", # 从 sandbox merge 到 master 是不允许的: git merge [master] sandbox
+  # "sandbox" => ["master", "production"], # 从 sandbox merge 到 master 或 production 是不允许的: git merge [master | production] sandbox
+  "sandbox" => "*" # 从 sandbox merge 到任何其他分支都是不允许的: git merge [any branch] sandbox
+}
+
+ALLOWED_RULES = {
+  "master" => "production", # production 只允许从 master 分支 merge: git merge [production] master
+  # "another branch" => "production",
+  # "dev" => "master",
+}
+
+def merge?
+  ARGV[1] == "merge"
+end
+
+def current_branch
+  @current_branch = `git branch | grep '*' | sed 's/* //'`.chop
+end
+
+def merge_msg
+  @msg ||= `cat .git/MERGE_MSG`
+end
+
+def from_branch
+  @from_branch = merge_msg.match(/Merge branch '(.*?)'/)[1]
+end
+
+# https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
+def show_discard_msg
+  puts
+  puts " \e[31m不要提交！\e[0m"
+  puts " \e[31m不要提交！\e[0m"
+  puts " \e[31m不要提交！\e[0m"
+  puts
+  puts " 你正在把 \e[1;33m#{from_branch}\e[0m 分支 merge 到 \e[1;33m#{current_branch}\e[0m 分支"
+  puts " 这是不允许的"
+  puts
+  puts " 运行下面的命令来\e[31m撤消\e[0m这次 merge"
+  puts " \e[1;32mgit reset --merge\e[0m"
+  puts
+end
+
+if !merge?
+  exit 0
+end
+
+if Array[ FORBIDDEN_RULES[from_branch] ].include?(current_branch) || FORBIDDEN_RULES[from_branch] == "*"
+  show_discard_msg
+  exit 1
+end
+
+if ALLOWED_RULES.values.include?(current_branch)
+  match =
+    ALLOWED_RULES.any? do |source, dest|
+      dest == current_branch && source == from_branch
+    end
+
+  if match
+    exit 0
+  else
+    show_discard_msg
+    exit 1
+  end
+end
+
