@@ -103,3 +103,8 @@ fi
 # 防止乱码
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+export PATH="/usr/local/opt/bison/bin:$PATH"
+
+# 修复shell快捷键，跟bash的保持一致
+bindkey "^[b" backward-word  # Alt-b, zsh的是Alt-B
+bindkey "^[f" forward-word   # Alt-f, zsh的是Alt-F

@@ -76,7 +76,10 @@ export PATH=/usr/local/lib/node_modules/karma/bin:$PATH
 
 export PATH=/Applications/Postgres.app/Contents/Versions/9.6/bin:$PATH
 
+export GOPATH=$HOME/go
 export PATH=$PATH:$(go env GOPATH)/bin
+
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # Fix "read unix ->: EOF" error for zeus
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
