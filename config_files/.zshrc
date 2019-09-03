@@ -94,6 +94,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source ~/.bash_profile
+source ~/my_stuff/config_files/.bashrc
 
 # 显示当前shell
 if [ $0 = -/bin/zsh ]; then
