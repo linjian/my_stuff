@@ -109,3 +109,6 @@ export PATH="/usr/local/opt/bison/bin:$PATH"
 # 修复shell快捷键，跟bash的保持一致
 bindkey "^[b" backward-word  # Alt-b, zsh的是Alt-B
 bindkey "^[f" forward-word   # Alt-f, zsh的是Alt-F
+
+# 防止 Ctrl-D 退出shell
+setopt ignore_eof

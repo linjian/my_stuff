@@ -14,6 +14,8 @@ alias ll='ls -lFh'
 alias la='ls -A'
 alias lla='ls -lFHa'
 alias l='ls -CF'
+alias l.='ls -d .*'
+alias ll.='ll -d .*'
 alias grep='grep --color=auto'
 alias viMode='set -o vi'
 alias emacsMode='set -o emacs'
@@ -74,12 +76,14 @@ export DYLD_LIBRARY_PATH="/usr/local/mysql/lib:$DYLD_LIBRARY_PATH"
 
 export PATH=/usr/local/lib/node_modules/karma/bin:$PATH
 
-export PATH=/Applications/Postgres.app/Contents/Versions/9.6/bin:$PATH
+export PATH=/Applications/Postgres.app/Contents/Versions/11/bin:$PATH
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$(go env GOPATH)/bin
 
 export PATH="$HOME/.cargo/bin:$PATH"
+
+export PATH="$HOME/Library/Python/3.7/bin:$PATH"
 
 # Fix "read unix ->: EOF" error for zeus
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
